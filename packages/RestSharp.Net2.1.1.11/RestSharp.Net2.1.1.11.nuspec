@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>RestSharp.Net2</id>
+    <version>1.1.11</version>
+    <title>RestSharp.Net2</title>
+    <authors>https://github.com/mcintyre321/RestSharp-.NET-2.0-Fork</authors>
+    <owners>https://github.com/mcintyre321/RestSharp-.NET-2.0-Fork</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple REST and HTTP API Client</description>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="4.5.1" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="modal-header">
+        <h4>{{options.Heading}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row-fluid">
+            <div class="row-fluid">
+                <span class="span12">
+                    <label>{{options.Message}}</label>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-info btn-color-style2 btn-popup" ng-show="options.ShowCancelButton" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-primary btn-color-style1 btn-popup" ng-show="options.ShowOkButton" ng-click="ok()">OK</button>
+    </div>
+</body>
+</html>

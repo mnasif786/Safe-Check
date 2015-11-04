@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{60ACB320-F59A-4EE4-9F94-E66A900D40AB}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EvaluationChecklist</RootNamespace>
+    <AssemblyName>EvaluationChecklist</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\EvaluationChecklist.API.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Angular\Components\elastic.js" />
+    <Content Include="Angular\Components\jquery.spellchecker.js" />
+    <Content Include="Angular\Controllers\favourites.js" />
+    <Content Include="Angular\Controllers\clearLocalStoragePopup.js" />
+    <Content Include="Angular\Controllers\assignQaAdvisorPopup.js" />
+    <Content Include="Angular\Controllers\cloneChecklistController.js" />
+    <Content Include="Angular\Controllers\confirmCreateRecordIRN.js" />
+    <Content Include="Angular\Controllers\confirmDeleteChecklist.js" />
+    <Content Include="Angular\Controllers\confirmDownloadChecklist.js" />
+    <Content Include="Angular\Controllers\confirmPopup.js" />
+    <Content Include="Angular\Controllers\copyChecklistController.js" />
+    <Content Include="Angular\Controllers\genericConfirmationPopup.js" />
+    <Content Include="Angular\Controllers\localstorage.js" />
+    <Content Include="Angular\Controllers\deleteLetterConfirmation.js" />
+    <Content Include="Angular\Controllers\Maintenance\activateTemplateDialog.js" />
+    <Content Include="Angular\Controllers\Maintenance\addQuestionsToTemplateController.js" />
+    <Content Include="Angular\Controllers\Maintenance\addEditQuestions.js" />
+    <Content Include="Angular\Controllers\Maintenance\confirmDialog.js" />
+    <Content Include="Angular\Controllers\Maintenance\cloneTemplateDialog.js" />
+    <Content Include="Angular\Controllers\Maintenance\maintenance.js" />
+    <Content Include="Angular\Controllers\otheremail.js" />
+    <Content Include="Angular\Controllers\saveChangeNotification.js" />
+    <Content Include="Angular\Modules\accountservice.js" />
+    <Content Include="Angular\Modules\checklistservice.js" />
+    <Content Include="Angular\Modules\checklisttemplateservice.js" />
+    <Content Include="Angular\Modules\consultantservice.js" />
+    <Content Include="Angular\Modules\maintenance\categoryservice.js" />
+    <Content Include="Angular\Modules\executivesummaryservice.js" />
+    <Content Include="Angular\Modules\maintenance\userService.js" />
+    <Content Include="Angular\Partials\actionplanprint.htm" />
+    <Content Include="Angular\Partials\clearLocalStoragePopup.htm" />
+    <Content Include="Angular\Partials\assignQaAdvisorPopup.htm" />
+    <Content Include="Angular\Partials\cloneChecklistPopup.htm" />
+    <Content Include="Angular\Partials\confirmCreateRecordIRN.htm" />
+    <Content Include="Angular\Partials\confirmDeleteChecklistPopup.htm" />
+    <Content Include="Angular\Partials\confirmDownloadChecklist.htm" />
+    <Content Include="Angular\Partials\confirmPopup.htm" />
+    <Content Include="Angular\Partials\copyChecklistPopup.htm" />
+    <Content Include="Angular\Partials\genericConfirmationPopup.htm" />
+    <Content Include="Angular\Partials\favourites.htm" />
+    <Content Include="Angular\Partials\otheremail.htm" />
+    <Content Include="Angular\Partials\localstorage.htm" />
+    <Content Include="Angular\Partials\deleteLetterConfirmation.htm" />
+    <Content Include="Angular\Partials\Maintenance\addquestionstotemplate.htm" />
+    <Content Include="Angular\Partials\Maintenance\confirmDialog.htm" />
+    <Content Include="Angular\Partials\Maintenance\cloneTemplateDialog.htm" />
+    <Content Include="Angular\Partials\Maintenance\maintenance.htm" />
+    <Content Include="Angular\Partials\Maintenance\unauthorised.htm" />
+    <Content Include="Angular\Partials\Maintenance\_question.htm" />
+    <Content Include="Angular\Partials\saveChangeNotification.htm" />
+    <Content Include="Angular\Partials\executivesummaryeditor.htm" />
+    <Content Include="Angular\Partials\executivesummaryprint.htm" />
+    <Content Include="Angular\Tests\AccountServiceTests.js" />
+    <Content Include="Angular\Tests\AddBespokeQuestionControllerTests.js" />
+    <Content Include="Angular\Tests\AddEditQuestionControllerTests.js" />
+    <Content Include="Angular\Tests\AngularTestHelpers\angular-scenario.js" />
+    <Content Include="Angular\Tests\ChecklistIsSubmitDisabledTests.js" />
+    <Content Include="Angular\Tests\ChecklistQueryTests.js" />
+    <Content Include="Angular\Tests\ClientQuestionServiceTests.js" />
+    <Content Include="Angular\Tests\ChecklistSaveTests.js" />
+    <Content Include="Angular\Tests\ChecklistTemplateServiceTests.js" />
+    <Content Include="Angular\Tests\ChecklistGetTests.js" />
+    <Content Include="Angular\Tests\ChecklistControllerCompleteChecklistTests.js" />
+    <Content Include="Angular\Tests\ExecutiveSummaryServiceHelperTests.js" />
+    <Content Include="Angular\Tests\MockFactory.js" />
+    <Content Include="Angular\Tests\ExecutiveSummaryControllerTests.js" />
+    <Content Include="Angular\Tests\MaintenanceControllerTests.js" />
+    <Content Include="Angular\Tests\CreateChecklistControllerTests.js" />
+    <Content Include="Angular\Tests\ExecutiveSummaryServiceTests.js" />
+    <Content Include="Angular\Tests\LocalStorageTests.js" />
+    <Content Include="Angular\Tests\ReportSummaryTests.js" />
+    <Content Include="Angular\Tests\ResponseControllerTests.js" />
+    <Content Include="Angular\Tests\SafecheckTestHelper.js" />
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Bootstrap\css\datepicker.css" />
+    <Content Include="Bootstrap\img\add-header.png" />
+    <Content Include="Bootstrap\img\ajax-loader.gif" />
+    <Content Include="Bootstrap\img\icon-revert.png" />
+    <Content Include="Bootstrap\img\icon-tick.png" />
+    <Content Include="Bootstrap\img\icon-upload.png" />
+    <Content Include="Bootstrap\img\icon-download.png" />
+    <Content Include="Bootstrap\img\icon-assign.png" />
+    <Content Include="Bootstrap\img\icon-info.png" />
+    <Content Include="Bootstrap\img\icon-warning.png" />
+    <Content Include="Bootstrap\img\star.png" />
+    <Content Include="Bootstrap\img\star15x15.png" />
+    <Content Include="Bootstrap\img\star-unfilled.png" />
+    <Content Include="Bootstrap\js\bootstrap-datepicker.js" />
+    <Content Include="Content\angularjs\1.0.7\angular-resource.js" />
+    <Content Include="Content\angularjs\1.0.7\angular.js" />
+    <Content Include="Content\angularjs\1.0.7\angular.min.js" />
+    <Content Include="Content\angularjs\1.2.11\angular.js" />
+    <Content Include="Content\ie8.css" />
+    <Content Include="Content\ie.css" />
+    <Content Include="Content\ie.js" />
+    <Content Include="Content\Images\25x25_peninsula_emailIcn.jpg" />
+    <Content Include="Content\Images\25x25_peninsula_emailIcn2.jpg" />
+    <Content Include="Content\Images\25x25_peninsula_emailIcn3.jpg" />
+    <Content Include="Content\Images\25x25_peninsula_emailIcn4.jpg" />
+    <Content Include="Content\Images\BSI18001.png" />
+    <Content Include="Content\Images\BSI9001.png" />
+    <Content Include="Content\Images\BSOHeaderLogo.png" />
+    <Content Include="Content\Images\Client\VinciParkLogo.png" />
+    <Content Include="Content\Images\letter-footer-gb.png" />
+    <Content Include="Content\Images\letter-footer-ni.png" />
+    <Content Include="Content\Images\letter-footer-roi.png" />
+    <Content Include="Content\Images\letter-header-gb.jpg" />
+    <Content Include="Content\Images\letter-header-ni.jpg" />
+    <Content Include="Content\Images\letter-header-roi.jpg" />
+    <Content Include="Content\Images\logo-peninsula-ni.jpg" />
+    <Content Include="Content\Images\logo-peninsula-roi.jpg" />
+    <Content Include="Content\Images\ISO27001.png" />
+    <Content Include="Content\Images\logo-peninsula.jpg" />
+    <Content Include="Content\Images\PeninsulaLogo.jpg" />
+    <Content Include="Content\Images\peninsulalogowithstrapline.jpg" />
+    <Content Include="Content\jquery.spellchecker.css" />
+    <Content Include="Content\jqueryui\1.10.3\jquery-ui.min.js" />
+    <Content Include="Content\jqueryui\1.10.3\themes\smoothness\jquery-ui.css" />
+    <Content Include="Content\Jquery\1.10.2\jquery.min.js" />
+    <Content Include="Content\json3.min.js" />
+    <Content Include="Content\templates\SummaryFooterNI.htm" />
+    <Content Include="Content\templates\SummaryFooterROI.htm" />
+    <Content Include="Content\templates\SummaryFooter.htm" />
+    <Content Include="Global.asax" />
+    <Content Include="hibernate_BusinessSafe.cfg.xml" />
+    <Content Include="maintenancetool.htm" />
+    <Content Include="print.htm" />
+    <Content Include="Content\Images\AmberBall.png" />
+    <Content Include="Content\Images\GreenBall.png" />
+    <Content Include="Content\Images\RedBall.png" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ErrorCodes.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <None Include="Service References\ClientDocumentService\ClientDocumentService.disco" />
+    <None Include="Service References\ClientDocumentService\configuration91.svcinfo" />
+    <None Include="Service References\ClientDocumentService\configuration.svcinfo" />
+    <Content Include="Service References\ClientDocumentService\EvaluationChecklist.ClientDocumentService.ClientDocumentDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ClientDocumentService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\SecurityService\EvaluationChecklist.SecurityService.UserDto.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SecurityService\SecurityService.disco" />
+    <None Include="Service References\SecurityService\configuration91.svcinfo" />
+    <None Include="Service References\SecurityService\configuration.svcinfo" />
+    <None Include="Service References\SecurityService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="tinymce\js\tinymce\plugins\jqueryspellchecker\plugin.min.js" />
+    <Content Include="Angular\Components\tinymce.js" />
+    <Content Include="Angular\Controllers\clientsearch.js" />
+    <Content Include="Angular\Controllers\addBespokeQuestion.js" />
+    <Content Include="Angular\Controllers\adddefaultquestion.js" />
+    <Content Include="Angular\Controllers\executivesummary.js" />
+    <Content Include="Angular\Controllers\showMandatoryQuestion.js" />
+    <Content Include="Angular\Controllers\recordIRN.js" />
+    <Content Include="Angular\Controllers\ios-orientationchange-fix.js" />
+    <Content Include="Angular\Controllers\reportsummary.js" />
+    <Content Include="Angular\Controllers\createchecklist.js" />
+    <Content Include="Angular\Controllers\response.js" />
+    <Content Include="Angular\Modules\clientemployeeservice.js" />
+    <Content Include="Angular\Modules\clientservice.js" />
+    <Content Include="Angular\Modules\configservice.js" />
+    <Content Include="Angular\Modules\clientquestionservice.js" />
+    <Content Include="Angular\Modules\configservice.js.UAT" />
+    <Content Include="Angular\Modules\configservice.js.LIVE" />
+    <Content Include="Angular\Modules\impressiontypeservice.js" />
+    <Content Include="Angular\Modules\industryservice.js" />
+    <Content Include="Angular\Modules\templateservice.js" />
+    <Content Include="Angular\Partials\addBespokeQuestion.htm" />
+    <Content Include="Angular\Partials\clientsearch.htm" />
+    <Content Include="Angular\Partials\adddefaultquestion.htm" />
+    <Content Include="Angular\Partials\showMandatoryQuestion.htm" />
+    <Content Include="Angular\Partials\_recordIRN.htm" />
+    <Content Include="Angular\Partials\createchecklist.htm" />
+    <Content Include="Angular\Partials\reportsummary.htm" />
+    <Content Include="Angular\Partials\_category.htm" />
+    <Content Include="Angular\Partials\_checklists.htm" />
+    <Content Include="Angular\Partials\_response.htm" />
+    <Content Include="Angular\Tests\ChecklistControllerTests.js" />
+    <Content Include="Angular\Tests\ChecklistServiceTests.js" />
+    <Content Include="Angular\Tests\ClientServiceTests.js" />
+    <Content Include="Angular\Tests\ClientSearchControllerTests.js" />
+    <Content Include="Angular\Tests\IndustryServiceTests.js" />
+    <Content Include="Angular\Tests\e2eTesting.html" />
+    <Content Include="Angular\Controllers\checklists.js" />
+    <Content Include="Angular\Modules\app.js" />
+    <Content Include="Angular\Partials\checklists.htm" />
+    <Content Include="Bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="Bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Bootstrap\css\bootstrap.css" />
+    <Content Include="Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="Bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Bootstrap\img\icon-add.png" />
+    <Content Include="Bootstrap\img\icon-calendar.png" />
+    <Content Include="Bootstrap\img\icon-categorisation-td.png" />
+    <Content Include="Bootstrap\img\icon-categorisation.png" />
+    <Content Include="Bootstrap\img\icon-close.png" />
+    <Content Include="Bootstrap\img\icon-copy.png" />
+    <Content Include="Bootstrap\img\icon-delete.png" />
+    <Content Include="Bootstrap\img\icon-edit-header.png" />
+    <Content Include="Bootstrap\img\icon-edit.png" />
+    <Content Include="Bootstrap\img\icon-left-arrow.png" />
+    <Content Include="Bootstrap\img\icon-print-header.png" />
+    <Content Include="Bootstrap\img\icon-print.png" />
+    <Content Include="Bootstrap\img\icon-response.png" />
+    <Content Include="Bootstrap\img\icon-search.png" />
+    <Content Include="Bootstrap\img\search.png" />
+    <Content Include="Bootstrap\index.htm" />
+    <Content Include="Bootstrap\js\bootstrap.js" />
+    <Content Include="Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Bootstrap\js\ui-bootstrap-0.6.0.js" />
+    <Content Include="Bootstrap\js\ui-bootstrap-0.6.0.min.js" />
+    <Content Include="Bootstrap\js\ui-bootstrap-tpls-0.6.0.js" />
+    <Content Include="Bootstrap\js\ui-bootstrap-tpls-0.6.0.min.js" />
+    <Content Include="Bootstrap\SpanTest.htm" />
+    <Content Include="Content\document.css" />
+    <Content Include="index.htm" />
+    <Content Include="Angular\Partials\checklist.htm" />
+    <Content Include="Angular\Controllers\checklist.js" />
+    <Content Include="Angular\Tests\jasmine-1.3.1\jasmine-html.js" />
+    <Content Include="Angular\Tests\jasmine-1.3.1\jasmine.css" />
+    <Content Include="Angular\Tests\jasmine-1.3.1\jasmine.js" />
+    <Content Include="Angular\Tests\SpecRunner.html" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\icomoon-small.svg" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\icomoon.svg" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Views\Document\ActionPlan.cshtml" />
+    <Content Include="Views\Document\DocumentTemplate.cshtml" />
+    <Content Include="Views\Document\GenerateDocument.cshtml" />
+    <Content Include="Views\Document\Index.cshtml" />
+    <Content Include="Views\Document\QuestionAnswerChecklist.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\styles.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Angular\Modules\configservice.js.LIVEEXTERNAL" />
+    <None Include="Service References\ClientDocumentService\ClientDocumentService.wsdl" />
+    <None Include="Service References\ClientDocumentService\ClientDocumentService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClientDocumentService\ClientDocumentService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClientDocumentService\ClientDocumentService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClientDocumentService\ClientDocumentService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClientDocumentService\ClientDocumentService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClientDocumentService\ClientDocumentService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClientDocumentService\ClientDocumentService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecurityService\SecurityService.wsdl" />
+    <None Include="Service References\SecurityService\SecurityService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecurityService\SecurityService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecurityService\SecurityService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecurityService\SecurityService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecurityService\SecurityService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="tinymce\changelog.txt" />
+    <Content Include="tinymce\js\tinymce\license.txt" />
+    <Content Include="tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\compat3x\editable_selects.js" />
+    <Content Include="tinymce\js\tinymce\plugins\compat3x\form_utils.js" />
+    <Content Include="tinymce\js\tinymce\plugins\compat3x\mctabs.js" />
+    <Content Include="tinymce\js\tinymce\plugins\compat3x\tiny_mce_popup.js" />
+    <Content Include="tinymce\js\tinymce\plugins\compat3x\validate.js" />
+    <Content Include="tinymce\js\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\example\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="tinymce\js\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="tinymce\js\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\img\wline.gif" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="tinymce\js\tinymce\themes\modern\theme.min.js" />
+    <Content Include="tinymce\js\tinymce\tinymce.min.js" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\icomoon-small.eot" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\icomoon-small.ttf" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\icomoon-small.woff" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\icomoon.eot" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\icomoon.ttf" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\icomoon.woff" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <None Include="tinymce\LICENSE.TXT" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AngularManifest.appcache" />
+    <None Include="Angular\Tests\jasmine-1.3.1\MIT.LICENSE" />
+    <Content Include="packages.config" />
+    <None Include="tinymce\js\tinymce\langs\readme.md" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\readme.md" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="BusinessSafe.Application, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BusinessSafe\BusinessSafe.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="BusinessSafe.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BusinessSafe\BusinessSafe.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="BusinessSafe.Domain">
+      <HintPath>..\packages\BusinessSafe\BusinessSafe.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="BusinessSafe.Infrastructure">
+      <HintPath>..\packages\BusinessSafe\BusinessSafe.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="BusinessSafe.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BusinessSafe\BusinessSafe.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="BusinessSafe.Messages.Emails, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BusinessSafe\BusinessSafe.Messages.Emails.dll</HintPath>
+    </Reference>
+    <Reference Include="evohtmltopdf">
+      <HintPath>..\packages\EvoPDF.4.6\lib\net40\evohtmltopdf.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="HibernatingRhinos.Profiler.Appender.v4.0">
+      <HintPath>..\packages\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>..\packages\NServiceBus.3.2.6\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\packages\NServiceBus.3.2.6\lib\net40\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.NHibernate">
+      <HintPath>..\packages\NServiceBus.NHibernate.3.2.6\lib\net40\NServiceBus.NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Peninsula.Security.ActiveDirectory">
+      <HintPath>..\packages\Peninsula.Security.ActiveDirectory.1.0.1.0\lib\net35\Peninsula.Security.ActiveDirectory.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Angular\Modules\maintenance\questionservice.js" />
+    <Content Include="Angular\Controllers\Maintenance\deleteTemplateDialog.js" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IocConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\IResponseDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="ClientDetails\ClientDetailsREST.cs" />
+    <Compile Include="ClientDetails\IClientDetailsService.cs" />
+    <Compile Include="ClientDetails\Models\ChecklistDetails.cs" />
+    <Compile Include="ClientDetails\Models\CompanyDetails.cs" />
+    <Compile Include="ClientDetails\Models\SiteDetails.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Helpers\NullableDateTimeExtensions.cs" />
+    <Compile Include="Helpers\ChecklistService.cs" />
+    <Compile Include="Helpers\UserIdentity.cs" />
+    <Compile Include="Helpers\ActiveDirectoryServiceFacade.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ChecklistController.cs" />
+    <Compile Include="Controllers\ClientDetails\Client.cs" />
+    <Compile Include="Controllers\ChecklistTemplateController.cs" />
+    <Compile Include="Controllers\ConsultantController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
+    <Compile Include="Helpers\IActiveDirectoryService.cs" />
+    <Compile Include="Controllers\IndustryController.cs" />
+    <Compile Include="Controllers\MaintenanceUserController.cs" />
+    <Compile Include="Controllers\QaAdvisorController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\SpellCheckController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ChecklistPdfCreator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\ClientDocumentationChecklistPdfWriter.cs" />
+    <Compile Include="Helpers\ComplianceReviewReportViewModelFactory.cs" />
+    <Compile Include="Helpers\CORSModule.cs" />
+    <Compile Include="Helpers\EnumExtensions.cs" />
+    <Compile Include="Helpers\ExecutiveSummaryLetterHeadFixer.cs" />
+    <Compile Include="Helpers\IChecklistPdfCreator.cs" />
+    <Compile Include="Helpers\IClientDocumentationChecklistPdfWriter.cs" />
+    <Compile Include="Helpers\IComplianceReviewReportViewModelFactory.cs" />
+    <Compile Include="Helpers\IDependencyFactory.cs" />
+    <Compile Include="Helpers\PdfGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\QualityControlService.cs" />
+    <Compile Include="Helpers\StructureMapDependencyFactory.cs" />
+    <Compile Include="Helpers\StructureMapDependencyResolver.cs" />
+    <Compile Include="Mappers\ChecklistIndexMapper.cs" />
+    <Compile Include="Mappers\ChecklistTemplateMapper.cs" />
+    <Compile Include="Mappers\ConsultantMapper.cs" />
+    <Compile Include="Mappers\ChecklistPersonsSeenMapper.cs" />
+    <Compile Include="Mappers\ImmediateRiskNotificationViewModelMapper.cs" />
+    <Compile Include="Mappers\QaAdvisorMapper.cs" />
+    <Compile Include="Mappers\QuestionMapper.cs" />
+    <Compile Include="Models\Answer.cs" />
+    <Compile Include="Models\AnswerViewModel.cs" />
+    <Compile Include="Models\AreaOfNonComplianceHeadingModel.cs" />
+    <Compile Include="Models\AssignedToViewModel.cs" />
+    <Compile Include="Models\ChecklistTemplateViewModel.cs" />
+    <Compile Include="Models\ChecklistViewModel.cs" />
+    <Compile Include="Models\ClientEmployeeViewModel.cs" />
+    <Compile Include="Models\ClientQuestionViewModel.cs" />
+    <Compile Include="Models\ComplianceReviewItem.cs" />
+    <Compile Include="Models\ComplianceReviewReportViewModel.cs" />
+    <Compile Include="Models\ConsultantViewModel.cs" />
+    <Compile Include="Models\ChecklistTemplateQuestionIdsViewModel.cs" />
+    <Compile Include="Models\CopyChecklistResponseViewModel.cs" />
+    <Compile Include="Models\MaintenanceUserViewModel.cs" />
+    <Compile Include="Models\DocumentTemplateViewModel.cs" />
+    <Compile Include="Models\ImmediateRiskNotificationViewModel.cs" />
+    <Compile Include="Models\ImpressionTypeViewModel.cs" />
+    <Compile Include="Models\IndustryQuestionModel.cs" />
+    <Compile Include="Models\IndustryViewModel.cs" />
+    <Compile Include="Models\OtherEmailsViewModel.cs" />
+    <Compile Include="Models\PersonSeenViewModel.cs" />
+    <Compile Include="Models\QaAdvisorViewModel.cs" />
+    <Compile Include="Models\QuestionAnswerViewModel.cs" />
+    <Compile Include="Models\QuestionViewModel.cs" />
+    <Compile Include="Models\SiteVisitViewModel.cs" />
+    <Compile Include="Models\FavouritesChecklistViewModels.cs" />
+    <Compile Include="Models\TimescaleViewModel.cs" />
+    <Compile Include="Requests\CloneTemplateRequest.cs" />
+    <Compile Include="Requests\RenameTemplateRequest.cs" />
+    <Compile Include="Requests\UpdateTemplateQuestionRequest.cs" />
+    <Compile Include="Service References\ClientDocumentService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SecurityService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ClientDocumentService\" />
+    <WCFMetadataStorage Include="Service References\SecurityService\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54850</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

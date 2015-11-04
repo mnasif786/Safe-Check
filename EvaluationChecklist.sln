@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvaluationChecklist.Generator", "EvaluationChecklist.Generator\EvaluationChecklist.Generator.csproj", "{60ACB320-F59A-4EE4-9F94-E66A900D40AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvaluationChecklist.Api.Tests", "EvaluationChecklist.Api.Tests\EvaluationChecklist.Api.Tests.csproj", "{121C89AF-0F78-4E07-B96C-C00EF4E0EBEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvaluationChecklist.IntegrationTests", "EvaluationChecklist.IntegrationTests\EvaluationChecklist.IntegrationTests.csproj", "{2F0360DF-8E8B-462F-8FA1-0E9630F89705}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60ACB320-F59A-4EE4-9F94-E66A900D40AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60ACB320-F59A-4EE4-9F94-E66A900D40AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60ACB320-F59A-4EE4-9F94-E66A900D40AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60ACB320-F59A-4EE4-9F94-E66A900D40AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{121C89AF-0F78-4E07-B96C-C00EF4E0EBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{121C89AF-0F78-4E07-B96C-C00EF4E0EBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{121C89AF-0F78-4E07-B96C-C00EF4E0EBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{121C89AF-0F78-4E07-B96C-C00EF4E0EBEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F0360DF-8E8B-462F-8FA1-0E9630F89705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F0360DF-8E8B-462F-8FA1-0E9630F89705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F0360DF-8E8B-462F-8FA1-0E9630F89705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F0360DF-8E8B-462F-8FA1-0E9630F89705}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

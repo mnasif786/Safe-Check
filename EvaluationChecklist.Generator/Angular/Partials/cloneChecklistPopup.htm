@@ -1,0 +1,70 @@
+﻿<div class="modal-header">
+    <h4>Clone Report</h4>
+</div>
+
+<div class="modal-body">
+  
+    <div class="content">
+        <div>         
+            <p>Clone existing report</p>
+            <label class="radio">
+                <input type="radio" value="WithoutResponses" ng-model="cloneOption.Value" /> without responses</label>
+            <label class="radio">
+                <input type="radio" value="WithResponses" ng-model="cloneOption.Value" />with responses</label>
+        </div>   
+    </div>
+
+    <p>Please find client and site(s) to which you would like to clone</p>    
+    <div class="content">
+        <div class="row-fluid">
+            <div class="span11">
+                <h3 class="title">Find Client</h3>
+            </div>
+        </div>
+
+        <div ng-show="isOnlineAndWorkingOnline(null)" class="row-fluid">
+            <form class="form-search" ng-submit="loadClientDetails()" >
+                CAN
+                <input type="text" ng-model="CAN.Value">
+                <button type="button" class="btn btn-primary" ng-click="retrieveClientDetails()">Search</button>
+            </form>
+            <div class="row-fluid" ng-hide="siteListUnavailable()">
+                <div class="span11">
+                    <h3 class="title">
+                        {{ClientDetails.CAN}} - {{ClientDetails.CompanyName}} Sites List</h3>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="!isOnlineAndWorkingOnline(null)"><p>This feature is not available when working offline.</p></div>
+
+        <div class="row-fluid" ng-hide="siteListUnavailable()" >
+        <table class="search-results span11" >
+            <tr>
+                <th>
+                    <a href="">Site Name</a>
+                </th>
+                <th>
+                    Clone To                
+                </th>            
+            </tr>
+             <tr ng-repeat="site in Sites |orderBy:predicate:reverse">
+                    <td>
+                        {{site.SiteName}}, {{site.Address1}}, {{site.Postcode}}
+                    </td>            
+                    <td>                    
+                        <input type="checkbox" ng-model="site.selected">            
+                    </td>
+            </tr>
+        </table>
+        </div>
+    </div> 
+</div>        
+
+<div class="modal-footer">
+    <div class="pull-right">
+        <button class="btn btn-info btn-color-style2" ng-click="cancel()">Cancel</button>       
+        <button class="btn btn-primary" ng-click="ok()">OK</button>        
+    </div>
+</div>
+

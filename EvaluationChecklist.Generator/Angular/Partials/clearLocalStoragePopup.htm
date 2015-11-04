@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="modal-header">
+        <h4>Local Storage Drafts</h4>
+        </div>
+    <div class="modal-body">
+        <p>Following drafts are currently Saved in your local storage:</p>
+        <div class="row-fluid">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>CAN</th>
+                        <th>Postcode</th>
+                        <th>Site Name</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="draft in localDrafts">
+                    <tr>
+                        <td>{{draft.CAN}}</td>
+                        <td>{{draft.Site.Postcode}}</td>
+                        <td>{{draft.Site.SiteName}}</td>
+                        <td><input type="checkbox" ng-model="draft.Deleted" /></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+        <div class="modal-footer">            
+            <button class="btn btn-info btn-color-style2 btn-popup" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-primary btn-color-style1 btn-popup" ng-click="ok()">Ok</button>
+        </div>
+</body>
+</html>

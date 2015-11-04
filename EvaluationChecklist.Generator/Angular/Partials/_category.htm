@@ -1,0 +1,83 @@
+﻿<div class="row-fluid search-result-row" >
+    <table id="questionAnswerTable" class="table table-bordered tableScreen6">
+        <thead>
+            <tr>
+                <th class="question-number-width"   style="border: none" scope="col">&nbsp;</th>
+                <th class="question-width"          style="border: none" scope="col">Question</th>
+                <th class="categorisation-width"    style="border: none" scope="col">Categorisation</th>
+                <th class="actionIcon-width"        style="border: none" scope="col">Comments</th>
+                <th class="comments-width"          style="border: none" scope="col">&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="questionAnswer in Checklist.Questions | filter:{Question.CategoryId: category.Id} | orderBy: 'QuestionNumber'"
+                ng-hide="questionAnswer.Answer.Response!=null && (questionAnswer.Answer.Response.Title=='Not Applicable' && hideNotApplicableQuestionResponses) ||
+                (hideAcceptableQuestionsRepsonses && questionAnswer.Answer.Response.Title=='Acceptable')">
+               
+                <td class="question-number-width">{{questionAnswer.CategoryNumber}}.{{questionAnswer.QuestionNumber}}</td>
+                <td class="question-width">{{questionAnswer.Question.Text}} </td>
+                <td class="categorisation-width">
+                    <label class="radio"
+                           ng-repeat="response in questionAnswer.Question.PossibleResponses | orderBy: 'Title': false"  ng-show="!response.Deleted">
+
+                        <input type="radio"
+                               ng-model="questionAnswer.Answer.SelectedResponseId"
+                               value="{{response.Id}}"                              
+                               ng-change="questionAnswered(questionAnswer.Question.Id, response)"                               
+                               ng-disabled="readonly" />
+                        {{response.Title}}
+                    </label>
+                </td>
+                <td class="actionIcon-width"><a ng-show="questionAnswer.Answer.SelectedResponseId != null && !readonly && !Checklist.SpecialReport" style="display: none" href="" title="Edit" ng-click="open(questionAnswer)">
+                    <img style="margin-bottom: 5px" src="Bootstrap/img/icon-edit.png"></a>
+                    <a href="" title="Remove" ng-click="deleteQuestion(questionAnswer)" ng-show="!questionAnswer.Question.Mandatory && !readonly">
+                        <img src="Bootstrap/img/icon-delete.png">
+                    </a>
+                    <span tooltip="{{questionAnswer.Answer.QaComments}}" ng-show="questionAnswer.Answer.QaComments !=null && questionAnswer.Answer.QaComments !='' && questionAnswer.Answer.QaSignedOffBy==null">
+                        <div ng-switch on="questionAnswer.Answer.QaCommentsResolved">
+                            <div ng-switch-when="true">
+                                <img src="Bootstrap/img/icon-tick.png" />
+                            </div>
+                            <div ng-switch-default>
+                                <img src="Bootstrap/img/icon-warning.png" />
+                            </div>
+                        </div>
+                    </span>
+                </td>
+                <td class="comments-width">
+                    <ng-switch on="questionAnswer.Answer.SelectedResponseId != null">
+                        <div ng-switch-when="true">
+                            <div ng-show="questionAnswer.Answer.Response.Title == 'Unacceptable' || questionAnswer.Answer.Response.Title == 'Improvement Required' ">
+                                <div>
+                                    <b>NC: </b>{{questionAnswer.Answer.AreaOfNonCompliance}}
+                                </div>
+                                <div ng-show="!isNullOrEmptyString(questionAnswer.Answer.SupportingEvidence)">
+                                    <b>SE: </b>{{questionAnswer.Answer.SupportingEvidence}}
+                                </div>
+                                <div>
+                                    <b>AR: </b>{{questionAnswer.Answer.ActionRequired}}
+                                </div>
+                                <div>
+                                    <b>Agreed Timescale:</b> {{questionAnswer.Answer.Timescale.Name}} &nbsp; &nbsp; &nbsp; <b>GN:</b> {{questionAnswer.Answer.GuidanceNotes}}
+                                </div>
+                                <b>Assigned To:</b> {{getAssignedToName(questionAnswer.Answer)}}
+                            </div>
+
+                            <div ng-show="questionAnswer.Answer.Response.Title == 'Acceptable' ">
+                                <div><b>SE: </b>{{questionAnswer.Answer.SupportingEvidence}}</div>
+                                <ng-switch on="questionAnswer.Answer.SupportingDocumentationStatus">
+                                    <div ng-switch-when="Verified"><b>Docs: </b>Documentary Evidence Seen - Next Due Date {{questionAnswer.Answer.SupportingDocumentationDate | date:'dd/MM/yyyy'}}</div>
+                                    <div ng-switch-when="Reported"><b>Docs: </b>No documentary evidence seen, reported to be in place</div>
+                                </ng-switch>
+                                <div><b>GN:</b> {{questionAnswer.Answer.GuidanceNotes}}</div>
+                            </div>
+
+                        </div>
+
+                    </ng-switch>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>        
+</div>

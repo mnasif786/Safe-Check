@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html ng-app="maintenancetool">
+<head>
+    <title>SafeCheck Maintenance</title>
+    <meta name="maintenance" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+
+    <script src="content/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script src="content/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="content/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
+    <script src="content/angularjs/1.0.7/angular-resource.js" type="text/javascript"></script>
+
+    <script src="angular/modules/app.js" type="text/javascript"></script>
+    <!--controllers-->
+    <script src="angular/controllers/maintenance/maintenance.js" type="text/javascript"></script>
+    <script src="angular/controllers/maintenance/addEditQuestions.js" type="text/javascript"></script>
+    <script src="angular/controllers/maintenance/confirmDialog.js" type="text/javascript"></script>
+    <script src="angular/controllers/maintenance/activateTemplateDialog.js" type="text/javascript"></script>
+    <script src="angular/controllers/maintenance/cloneTemplateDialog.js" type="text/javascript"></script>
+    <script src="angular/controllers/maintenance/addquestionstotemplatecontroller.js" type="text/javascript"></script>
+    <script src="angular/controllers/maintenance/deleteTemplateDialog.js" type="text/javascript"></script>
+
+    <!--services-->
+    <script src="angular/modules/accountservice.js" type="text/javascript"></script>
+    <script src="angular/modules/configservice.js" type="text/javascript"></script>
+    <script src="angular/modules/clientservice.js" type="text/javascript"></script>
+    <script src="angular/modules/checklistservice.js" type="text/javascript"></script>
+    <script src="angular/modules/clientquestionservice.js" type="text/javascript"></script>
+    <script src="angular/modules/executivesummaryservice.js" type="text/javascript"></script>
+    <script src="angular/modules/industryservice.js" type="text/javascript"></script>
+    <script src="angular/modules/maintenance/categoryservice.js" type="text/javascript"></script>
+    <script src="angular/modules/maintenance/questionservice.js" type="text/javascript"></script>
+    <script src="angular/modules/checklisttemplateservice.js" type="text/javascript"></script>
+    <script src="angular/modules/consultantservice.js" type="text/javascript"></script>
+    <script src="angular/modules/maintenance/userService.js" type="text/javascript"></script>
+
+
+    <script src="bootstrap/js/ui-bootstrap-0.6.0.min.js"></script>
+    <script src="bootstrap/js/ui-bootstrap-tpls-0.6.0.min.js"></script>
+
+    <!--boilerplate-->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/ui-bootstrap-0.6.0.min.js"></script>
+    <script src="bootstrap/js/ui-bootstrap-tpls-0.6.0.min.js"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="content/styles.css" rel="stylesheet" type="text/css" />
+
+    <link href="bootstrap/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <script src="bootstrap/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <!--[if IE]>
+	        <script type="text/javascript" src="Content/ie.js"></script>
+	        <link rel="stylesheet" type="text/css" href="Content/ie.css" />
+			<script type="text/javascript" src="Content/json3.min.js"></script>
+
+		<![endif]-->
+
+    <!--[if lt IE 9]>
+            <link rel="stylesheet" type="text/css" href="Content/ie8.css"  />
+        <![endif]-->
+    <!-- <style type="text/css">
+         
+          
+     </style>-->
+    <script type="text/javascript">
+        // IE9 fix
+        if (!window.console) {
+            var console = {
+                log: function () {
+                },
+                warn: function () {
+                },
+                error: function () {
+                },
+                time: function () {
+                }
+            };
+        }
+    </script>
+</head>
+    <body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <p class="navbar-text pull-right">Welcome {{user.fullname()}} - ({{user.role}})</p>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row-fluid">
+                <br/>
+                <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+            </div>
+        </div>
+        <div ng-view class="container"></div>
+    </body>
+</html>

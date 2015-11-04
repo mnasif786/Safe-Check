@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <title>Safecheck Tests</title>
+    <link rel="shortcut icon" type="image/png" href="jasmine-1.3.1/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="jasmine-1.3.1/jasmine.css">
+    <script type="text/javascript" src="jasmine-1.3.1/jasmine.js"></script>
+    <script type="text/javascript" src="jasmine-1.3.1/jasmine-html.js"></script>
+    <!-- include source files here... -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular-mocks.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="/bootstrap/js/ui-bootstrap-0.6.0.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/ui-bootstrap-tpls-0.6.0.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
+    <script src="/angular/components/tinymce.js" type="text/javascript"></script>
+
+    <!-- Controllers -->
+    <script src="/angular/controllers/checklist.js" type="text/javascript"></script>
+    <script src="/angular/controllers/checklists.js" type="text/javascript"></script>
+    <script src="/angular/controllers/createchecklist.js" type="text/javascript" ></script>
+    <script src="/angular/controllers/addBespokeQuestion.js" type="text/javascript" ></script>
+    <script src="/angular/controllers/reportsummary.js" type="text/javascript"></script>
+    <script src="/angular/controllers/clientsearch.js" type="text/javascript"></script>
+    <script src="/angular/controllers/addBespokeQuestion.js" type="text/javascript"></script>
+    <script src="/angular/controllers/response.js" type="text/javascript"></script>
+    <script src="/angular/controllers/reportsummary.js" type="text/javascript"></script>
+    <script src="/angular/controllers/maintenance/addEditQuestions.js" type="text/javascript"></script>
+    <script src="/angular/controllers/maintenance/maintenance.js"></script>
+    <script src="/angular/controllers/maintenance/confirmDialog.js" type="text/javascript"></script>
+    <script src="/angular/controllers/maintenance/addQuestionsToTemplateController.js" type="text/javascript"></script>
+    <script src="/angular/controllers/executivesummary.js"></script>
+	<script src="/angular/controllers/maintenance/deleteTemplateDialog.js" type="text/javascript"></script>
+    <script src="/angular/controllers/confirmDeleteChecklist.js" type="text/javascript"></script>
+    <script src="/angular/controllers/confirmDownloadChecklist.js" type="text/javascript"></script>
+    <script src="/angular/controllers/showMandatoryQuestion.js"  type="text/javascript"></script>
+    <!-- modules -->
+    <script type="text/javascript" src="/angular/modules/app.js"></script>
+    <script src="/Angular/modules/impressiontypeservice.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/angular/modules/clientservice.js"></script>
+    <script type="text/javascript" src="/angular/modules/clientemployeeservice.js"></script>
+    <script type="text/javascript" src="/angular/modules/checklistservice.js"></script>
+    <script type="text/javascript" src="/angular/modules/checklisttemplateservice.js"></script>
+    <script type="text/javascript" src="/angular/modules/industryservice.js"></script>    
+    <script type="text/javascript" src="/angular/modules/clientquestionservice.js"></script>
+    <script type="text/javascript" src="/angular/modules/templateservice.js"></script>
+    <script type="text/javascript" src="/angular/modules/configservice.js"></script>
+    <script type="text/javascript" src="/angular/modules/executivesummaryservice.js" ></script>
+    <script type="text/javascript" src="/angular/modules/accountservice.js"></script>
+    <script type="text/javascript" src="/angular/modules/checklisttemplateservice.js"></script>
+    <script type="text/javascript" src="/angular/modules/maintenance/questionservice.js"></script>
+    <script type="text/javascript" src="/angular/modules/maintenance/categoryservice.js"></script>
+    <script type="text/javascript" src="/angular/modules/consultantservice.js"></script>
+    
+    <!-- test helpers -- -->
+    <script src="SafecheckTestHelper.js"></script>
+    <script src="MockFactory.js"></script>
+
+
+    <!-- include spec files here... -->
+
+    <script type="text/javascript" src="ChecklistControllerTests.js"></script>
+    <script src="ChecklistServiceTests.js" type="text/javascript"></script>
+    <script src="ClientServiceTests.js" type="text/javascript"></script>
+    <script src="ClientSearchControllerTests.js" type="text/javascript"></script>
+    <script src="IndustryServiceTests.js" type="text/javascript"></script>
+    <script src="ExecutiveSummaryServiceTests.js" type="text/javascript"></script>
+    <script src="AddBespokeQuestionControllerTests.js" type="text/javascript"></script>  
+    <script src="LocalStorageTests.js" type="text/javascript"></script>
+    <script src="ResponseControllerTests.js" type="text/javascript"></script>
+    <script src="ClientQuestionServiceTests.js" type="text/javascript"></script>
+    <script src="CreateChecklistControllerTests.js" type="text/javascript"></script>
+    <script src="ReportSummaryTests.js" type="text/javascript"></script>
+    <script src="AddEditQuestionControllerTests.js" type="text/javascript"></script>
+    <script src="MaintenanceControllerTests.js"></script>
+    <script src="ChecklistQueryTests.js" type="text/javascript"></script>
+    <script src="AccountServiceTests.js" type="text/javascript"></script>
+    <script src="ChecklistSaveTests.js" type="text/javascript"></script>
+    <script src="ExecutiveSummaryControllerTests.js"></script>
+    <script src="ChecklistTemplateServiceTests.js"></script>
+    <script src="ChecklistGetTests.js"></script>
+    <script src="ChecklistControllerCompleteChecklistTests.js"></script>
+    <script src="ChecklistIsSubmitDisabledTests.js"></script>
+    <script src="ExecutiveSummaryServiceHelperTests.js"></script>
+
+    <script type="text/javascript">
+        (function () {
+            var jasmineEnv = jasmine.getEnv();
+            jasmineEnv.updateInterval = 1000;
+
+            var htmlReporter = new jasmine.HtmlReporter();
+
+            jasmineEnv.addReporter(htmlReporter);
+
+            jasmineEnv.specFilter = function (spec) {
+                return htmlReporter.specFilter(spec);
+            };
+
+            var currentWindowOnload = window.onload;
+
+            window.onload = function () {
+                if (currentWindowOnload) {
+                    currentWindowOnload();
+                }
+                execJasmine();
+            };
+
+            function execJasmine() {
+                jasmineEnv.execute();
+            }
+
+            // IE9 fix
+            if(!window.console) {
+                var console = {
+                    log : function(){},
+                    warn : function(){},
+                    error : function(){},
+                    time : function(){}
+                }
+            }
+
+        })();
+  </script>
+</head>
+<body>
+</body>
+</html>

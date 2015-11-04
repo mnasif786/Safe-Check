@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="488b7c0e-0cc1-4877-a971-a82551c76104" name="Default" comment="" />
+    <ignored path="EvaluationChecklist.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="EvaluationChecklist" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="AngularManifest.appcache" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/AngularManifest.appcache">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="133" column="12" selection-start="4716" selection-end="4716" vertical-scroll-proportion="0.8550107" vertical-offset="1459" max-vertical-offset="2414">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="otheremail.htm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/otheremail.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="0" selection-start="1026" selection-end="1026" vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="544">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checklist.htm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/checklist.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="430" column="26" selection-start="24820" selection-end="24820" vertical-scroll-proportion="-25.076923" vertical-offset="6658" max-vertical-offset="10812">
+              <folding>
+                <element signature="n#style#0;n#input#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checklist.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Controllers/checklist.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1148" column="0" selection-start="40749" selection-end="40749" vertical-scroll-proportion="0.0" vertical-offset="18846" max-vertical-offset="19754">
+              <folding>
+                <marker date="1392809728245" expanded="true" signature="279:40828" placeholder="{...}" />
+                <marker date="1392809728245" expanded="true" signature="38926:39632" placeholder="{...}" />
+                <marker date="1392809728245" expanded="true" signature="38969:39247" placeholder="{&quot;templateUrl&quot;: 'angular/partials/otheremail.htm'...}" />
+                <marker date="1392809728245" expanded="true" signature="39106:39239" placeholder="{...}" />
+                <marker date="1392809728245" expanded="true" signature="39359:39587" placeholder="{...}" />
+                <marker date="1392809728245" expanded="true" signature="39601:39629" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChecklistControllerTests.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ChecklistControllerTests.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1020" column="14" selection-start="36070" selection-end="36070" vertical-scroll-proportion="0.0" vertical-offset="17075" max-vertical-offset="22372">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/EvaluationChecklist.Generator/Content/styles.css" />
+        <option value="$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Modules/app.js" />
+        <option value="$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Controllers/reportsummary.js" />
+        <option value="$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ReportSummaryTests.js" />
+        <option value="$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/reportsummary.htm" />
+        <option value="$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/_category.htm" />
+        <option value="$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ChecklistControllerTests.js" />
+        <option value="$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Controllers/checklist.js" />
+        <option value="$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/otheremail.htm" />
+        <option value="$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/checklist.htm" />
+        <option value="$PROJECT_DIR$/EvaluationChecklist.Generator/AngularManifest.appcache" />
+      </list>
+    </option>
+  </component>
+  <component name="JsKarmaPackageDirSetting">
+    <data>C:\Users\muhammadnauman.asif\AppData\Roaming\npm\node_modules\karma</data>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>JsTestDriverJavaScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>JasmineAdapterSupport</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist.Generator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist.Generator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist.Generator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist.Generator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EvaluationChecklist.Generator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="false" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_flatWidth0" value="301" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_flatWidth1" value="300" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_flatWidth2" value="301" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_flatWidth3" value="975" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_treeWidth0" value="305" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_treeWidth1" value="293" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_treeWidth2" value="300" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_treeWidth3" value="979" />
+    <property name="FileHistory.org.zmlx.hg4idea.provider.HgHistoryProvider_treeOrder3" value="3" />
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.SpecRunner.html">
+    <configuration default="false" name="SpecRunner.html" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" temporary="true" uri="http://localhost:63342/EvaluationChecklist/EvaluationChecklist.Generator/Angular/Tests/SpecRunner.html">
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="name" value="Dart" />
+      <option name="saveOutputToFile" value="false" />
+      <option name="showConsoleOnStdErr" value="false" />
+      <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <browser start="false" url="" with-js-debugger="false" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.SpecRunner.html" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.SpecRunner.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="488b7c0e-0cc1-4877-a971-a82551c76104" name="Default" comment="" />
+      <created>1392043235396</created>
+      <updated>1392043235396</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27894738" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18645833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23160173" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31277058" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USERS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ReportSummaryTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="10" selection-start="4467" selection-end="4467" vertical-scroll-proportion="0.0" vertical-offset="1649" max-vertical-offset="7276" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ChecklistControllerTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="9" selection-start="2388" selection-end="2388" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="19635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Modules/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="1777" selection-end="1777" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="7684" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/_category.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="21" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="1309" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/checklist.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="11" selection-start="1351" selection-end="1351" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="8891">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/AngularManifest.appcache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="13" selection-start="4753" selection-end="4753" vertical-scroll-proportion="0.0" vertical-offset="1567" max-vertical-offset="2482">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/reportsummary.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="116" selection-start="8088" selection-end="8088" vertical-scroll-proportion="0.0" vertical-offset="2021" max-vertical-offset="3077" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Controllers/reportsummary.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="397" column="0" selection-start="13456" selection-end="13456" vertical-scroll-proportion="0.0" vertical-offset="6012" max-vertical-offset="6902" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ReportSummaryTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="10" selection-start="4467" selection-end="4467" vertical-scroll-proportion="0.0" vertical-offset="1649" max-vertical-offset="7276" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ChecklistControllerTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="9" selection-start="2388" selection-end="2388" vertical-scroll-proportion="0.0" vertical-offset="867" max-vertical-offset="19635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Modules/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="1851" selection-end="1851" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="7701" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/_category.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="21" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="1309" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/checklist.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="33" selection-start="3426" selection-end="3426" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="8891">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/reportsummary.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="26" selection-start="6994" selection-end="6994" vertical-scroll-proportion="0.0" vertical-offset="2140" max-vertical-offset="3077" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ReportSummaryTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="7276" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Modules/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="1851" selection-end="1851" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7701" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/_category.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="21" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="1309" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/checklist.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="33" selection-start="3426" selection-end="3426" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="8891">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/reportsummary.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="26" selection-start="6994" selection-end="6994" vertical-scroll-proportion="0.0" vertical-offset="2140" max-vertical-offset="3077" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ReportSummaryTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="7276" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Modules/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="1851" selection-end="1851" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="7701" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/_category.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="21" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="1309" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/checklist.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="33" selection-start="3426" selection-end="3426" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="8891">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/reportsummary.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="26" selection-start="6994" selection-end="6994" vertical-scroll-proportion="0.0" vertical-offset="2140" max-vertical-offset="3077" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ReportSummaryTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="7276" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Modules/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="1850" selection-end="1850" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="7684" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/_category.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="21" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0" vertical-offset="442" max-vertical-offset="1309" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/checklist.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="33" selection-start="3426" selection-end="3426" vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="8891">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/reportsummary.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="26" selection-start="6994" selection-end="6994" vertical-scroll-proportion="0.0" vertical-offset="2140" max-vertical-offset="3077" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ReportSummaryTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="7276" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Controllers/addBespokeQuestion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="42" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1309" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Controllers/addBespokeQuestion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="42" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1309" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Controllers/addBespokeQuestion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="16" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1309" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Views/Document/ActionPlan.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="9945" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Controllers/AccountController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Controllers/addBespokeQuestion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="42" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="1309" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Content/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1684" column="0" selection-start="25240" selection-end="25240" vertical-scroll-proportion="-26.76" vertical-offset="27959" max-vertical-offset="28832" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/clientsearch.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="17" selection-start="2340" selection-end="2340" vertical-scroll-proportion="0.51261467" vertical-offset="607" max-vertical-offset="1479" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ReportSummaryTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="0" selection-start="4180" selection-end="4180" vertical-scroll-proportion="0.0" vertical-offset="1700" max-vertical-offset="7276" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Modules/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="42" selection-start="1628" selection-end="1628" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8041" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Controllers/reportsummary.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="22" selection-start="1794" selection-end="1794" vertical-scroll-proportion="-5.7772827" vertical-offset="6004" max-vertical-offset="6902" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/_checklists.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="872" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/checklists.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="41" selection-start="1281" selection-end="1285" vertical-scroll-proportion="0.5182999" vertical-offset="564" max-vertical-offset="1411" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/reportsummary.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="57" selection-start="8029" selection-end="8029" vertical-scroll-proportion="-32.73077" vertical-offset="1835" max-vertical-offset="3077" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/_category.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="111" selection-start="1585" selection-end="1585" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="1309" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ChecklistSaveTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="17" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4658" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Tests/ChecklistControllerTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1020" column="14" selection-start="36070" selection-end="36070" vertical-scroll-proportion="0.0" vertical-offset="17075" max-vertical-offset="22372">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Controllers/checklist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1148" column="0" selection-start="40749" selection-end="40749" vertical-scroll-proportion="0.0" vertical-offset="18846" max-vertical-offset="19754">
+          <folding>
+            <marker date="1392809728245" expanded="true" signature="279:40828" placeholder="{...}" />
+            <marker date="1392809728245" expanded="true" signature="38926:39632" placeholder="{...}" />
+            <marker date="1392809728245" expanded="true" signature="38969:39247" placeholder="{&quot;templateUrl&quot;: 'angular/partials/otheremail.htm'...}" />
+            <marker date="1392809728245" expanded="true" signature="39106:39239" placeholder="{...}" />
+            <marker date="1392809728245" expanded="true" signature="39359:39587" placeholder="{...}" />
+            <marker date="1392809728245" expanded="true" signature="39601:39629" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/otheremail.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="1026" selection-end="1026" vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/Angular/Partials/checklist.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="430" column="26" selection-start="24820" selection-end="24820" vertical-scroll-proportion="-25.076923" vertical-offset="6658" max-vertical-offset="10812">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#span#1;n#div#2;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EvaluationChecklist.Generator/AngularManifest.appcache">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="12" selection-start="4716" selection-end="4716" vertical-scroll-proportion="0.8550107" vertical-offset="1459" max-vertical-offset="2414">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

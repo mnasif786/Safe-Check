@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html ng-app="evaluationchecklistModule" manifest="AngularManifest.appcache">
+<head>
+    <title>SafeCheck</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+    <script src="content/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script src="content/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="content/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
+    <script src="content/angularjs/1.0.7/angular-resource.js" type="text/javascript"></script>
+    <script src="angular/modules/app.js" type="text/javascript"></script>
+
+    <!--controllers-->
+    <script src="angular/controllers/ios-orientationchange-fix.js" type="text/javascript"></script>
+    <script src="angular/controllers/checklist.js" type="text/javascript"></script>
+    <script src="angular/controllers/checklists.js" type="text/javascript"></script>
+    <script src="angular/controllers/clientsearch.js" type="text/javascript"></script>
+    <script src="angular/controllers/createchecklist.js" type="text/javascript"></script>
+    <script src="angular/controllers/response.js" type="text/javascript"></script>
+    <script src="angular/controllers/reportsummary.js" type="text/javascript"></script>
+    <script src="angular/controllers/addBespokeQuestion.js" type="text/javascript"></script>
+    <script src="angular/controllers/deleteLetterConfirmation.js" type="text/javascript"></script>
+    <script src="angular/controllers/showMandatoryQuestion.js" type="text/javascript"></script>
+    <script src="angular/controllers/saveChangeNotification.js" type="text/javascript"></script>
+    <script src="angular/controllers/adddefaultquestion.js" type="text/javascript"></script>
+    <script src="angular/controllers/recordIRN.js" type="text/javascript"></script>
+    <script src="angular/controllers/confirmPopup.js" type="text/javascript"></script>
+    <script src="angular/controllers/executivesummary.js" type="text/javascript"></script>
+    <script src="angular/controllers/confirmCreateRecordIRN.js" type="text/javascript"></script>
+    <script src="angular/controllers/assignQaAdvisorPopup.js" type="text/javascript"></script>
+    <script src="angular/controllers/confirmDownloadChecklist.js" type="text/javascript"></script>
+    <script src="angular/controllers/localstorage.js" type="text/javascript"></script>
+    <script src="angular/controllers/maintenance/confirmDialog.js" type="text/javascript"></script>
+    <script src="angular/controllers/confirmDeleteChecklist.js" type="text/javascript"></script>
+    <script src="angular/controllers/otheremail.js" type="text/javascript"></script>
+    <script src="angular/controllers/copyChecklistController.js"></script>
+    <script src="angular/controllers/cloneChecklistController.js"></script>
+    <script src="angular/controllers/clearLocalStoragePopup.js"></script>
+    <script src="angular/controllers/favourites.js"></script>
+    <script src="angular/controllers/genericConfirmationPopup.js"></script>
+
+    <!--services-->
+    <script src="angular/modules/configservice.js" type="text/javascript"></script>
+    <script src="angular/modules/clientservice.js" type="text/javascript"></script>
+    <script src="angular/modules/checklistservice.js" type="text/javascript"></script>
+    <script src="angular/modules/industryservice.js" type="text/javascript"></script>
+    <script src="angular/modules/clientquestionservice.js" type="text/javascript"></script>
+    <script src="angular/modules/templateservice.js" type="text/javascript"></script>
+    <script src="angular/modules/configservice.js" type="text/javascript"></script>
+    <script src="angular/modules/clientemployeeservice.js" type="text/javascript"></script>
+    <script src="angular/modules/impressiontypeservice.js" type="text/javascript"></script>
+    <script src="angular/modules/accountservice.js" type="text/javascript"></script>
+    <script src="angular/modules/executivesummaryservice.js" type="text/javascript"></script>
+    <script src="angular/modules/checklisttemplateservice.js" type="text/javascript"></script>
+    <script src="angular/modules/maintenance/questionservice.js" type="text/javascript"></script>
+
+
+    <!--boilerplate-->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/ui-bootstrap-0.6.0.min.js"></script>
+    <script src="bootstrap/js/ui-bootstrap-tpls-0.6.0.min.js"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <script src="tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
+    <script src="tinymce/js/tinymce/themes/modern/theme.min.js" type="text/javascript"></script>
+    <script src="angular/components/tinymce.js" type="text/javascript"></script>
+    <!--<script src="angular/components/jquery.tinymce.spellcheck.js" type="text/javascript"></script>-->
+    <script src="angular/components/jquery.spellchecker.js" type="text/javascript"></script>
+    <script src="angular/components/elastic.js" type="text/javascript"></script>
+
+    <link src="//tinymce.cachefly.net/4.0/skins/lightgray/skin.min.css" rel="stylesheet" type="text/css" />
+    <link src="//tinymce.cachefly.net/4.0/skins/lightgray/content.min.css" rel="stylesheet" type="text/css" />
+    <link src="//tinymce.cachefly.net/4.0/skins/lightgray/fonts/icomoon.svg" />
+    <link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <link href="content/styles.css" rel="stylesheet" type="text/css" />
+
+    <link href="bootstrap/css/datepicker.css" rel="stylesheet" type="text/css" />
+    <script src="bootstrap/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <!--[if IE]>
+	        <script type="text/javascript" src="Content/ie.js"></script>
+	        <link rel="stylesheet" type="text/css" href="Content/ie.css" />
+			<script type="text/javascript" src="Content/json3.min.js"></script>
+
+		<![endif]-->
+
+    <!--[if lt IE 9]>
+            <link rel="stylesheet" type="text/css" href="Content/ie8.css"  />
+    <![endif]-->
+    <style>
+        * {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -60px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+  height: 60px; 
+}
+.site-footer {
+  background: #f2f2f2;
+    padding-top: 5px;
+}
+    </style>
+</head>
+    <body>
+            <div class="page-wrap">
+    <div id="loadingWidgetId" ng-show="blocked" class="row-fluid ui-corner-all" style="padding: 0 .7em;" loading-widget>
+        <div class="loadingContent">
+            <p>
+                <img alt="Loading  Content" src="Bootstrap/img/ajax-loader.gif" class="ajax-loader" />&nbsp;Loading...
+            </p>
+        </div>
+    </div>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="nav-collapse collapse" style="height: 0px;">
+                    <ul class="nav">
+                        <li><a href="#/reportsummary">Home - Reports List</a></li>
+                        <li class="active"><a href="#/clientsearch">Create New Report</a></li>
+                    </ul>
+                </div>
+                <p class="navbar-text pull-right">
+                    <b ng-show="!online">You are OFFLINE</b>  Welcome {{user.fullname()}} - ({{user.role}})
+                                
+                            <label style="display: inline; }">
+                                <input id="workingOfflineSwitch" type="checkbox" ng-model="workingOffline.status" class="ng-valid checkbox-executive">
+                                Working Offline
+                            </label>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row-fluid">
+            <br />
+            <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+        </div>
+    </div>
+
+    <div class="container">
+        <div ng-view>
+        </div>
+    </div>
+</div>
+        <footer class="site-footer">
+            <div class="container">
+                <!--<p>
+                    <span ng-show="ChecklistLastSavedlocaly != null" ng-switch on="ChecklistLocalVersionIsGreaterThanServerVersion()">
+                        <span ng-switch-when="true"><strong>&nbsp;Last Saved to Local Storage: {{ChecklistLastSavedlocaly | date:'dd/MM/yyyy HH:mm:ss'}}</strong></span>
+                        <span ng-switch-default>&nbsp;Last Saved to Local Storage: {{ChecklistLastSavedlocaly | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+                    </span>
+                    <span ng-show="ChecklistLastSuccessfullySavedToServer != null">
+                        &nbsp;Last Saved to Server: {{ChecklistLastSuccessfullySavedToServer | date:'dd/MM/yyyy HH:mm:ss'}}
+                    </span>
+                    <span class="muted pull-right" style="color:blue;" ng-show="postChecklistInProgress == true">Saving...</span>
+                </p>
+                <p class="muted pull-right">
+                    {{appCacheStatus}}&nbsp;SafeCheck Version: {{version}}
+                </p>-->
+                <div class="row-fluid">
+                    <div class="span10">
+                        <span class="muted" ng-show="ChecklistLastSavedlocaly != null" ng-switch on="ChecklistLocalVersionIsGreaterThanServerVersion()">
+                            <span ng-switch-when="true"><strong>This version last saved to Local Storage: {{ChecklistLastSavedlocaly | date:'dd/MM/yyyy HH:mm:ss'}}</strong></span>
+                            <span ng-switch-default>This version last saved to Local Storage: {{ChecklistLastSavedlocaly | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+                        </span><br/>
+                        <span class="muted" ng-show="ChecklistLastSuccessfullySavedToServer != null">
+                            This version last saved to Server: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ChecklistLastSuccessfullySavedToServer | date:'dd/MM/yyyy HH:mm:ss'}}
+                        </span>
+                    </div>
+                    <div class="span2">
+                        <span class="pull-right" style="color:blue;" ng-show="postChecklistInProgress == true">Saving...</span>
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <span class="muted pull-right">{{appCacheStatus}}&nbsp;SafeCheck Version: {{version}}</span>
+                    </div>
+                </div>
+            </div>
+</footer>
+    <script type="text/javascript">
+        // IE9 fix
+        if (!window.console) {
+            var console = {
+                log: function () { },
+                warn: function () { },
+                error: function () { },
+                time: function () { }
+            }
+        }
+    </script>
+</body>
+</html>
+

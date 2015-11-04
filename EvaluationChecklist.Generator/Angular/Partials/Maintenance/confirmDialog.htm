@@ -1,0 +1,13 @@
+﻿<div class="modal-header">
+     <img class="pull-right" src="Bootstrap/img/icon-response.png" ng-click="cancel()" />
+    <h4>{{options.title}}</h4>
+</div>
+    <div class="modal-body">
+
+            <label>{{options.prompt}}</label>
+
+    </div>
+<div class="modal-footer">
+    <button ng-show="options.cancel.length > 0"  class="btn btn-info btn-color-style2 btn-popup"  ng-click="cancel()">{{options.cancel}}</button>
+    <button class="btn btn-primary btn-color-style1 btn-popup" ng-click="ok()">{{options.ok}}</button>
+</div>

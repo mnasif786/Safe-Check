@@ -1,0 +1,727 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EvaluationChecklist</name>
+    </assembly>
+    <members>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:BusinessSafe.API.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:BusinessSafe.API.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:BusinessSafe.API.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:BusinessSafe.API.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BusinessSafe.API.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:BusinessSafe.API.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:BusinessSafe.API.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:BusinessSafe.API.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:BusinessSafe.API.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:BusinessSafe.API.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the templateRequest body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,BusinessSafe.API.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the templateRequest or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a templateRequest or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,BusinessSafe.API.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a templateRequest or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create one using <see cref="T:BusinessSafe.API.Areas.HelpPage.ObjectGenerator"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},BusinessSafe.API.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a templateRequest or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="T:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey.#ctor(BusinessSafe.API.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,BusinessSafe.API.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:BusinessSafe.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:BusinessSafe.API.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BusinessSafe.API.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:BusinessSafe.API.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:BusinessSafe.API.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:BusinessSafe.API.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:BusinessSafe.API.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:BusinessSafe.API.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:BusinessSafe.API.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BusinessSafe.API.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="T:EvaluationChecklist.ClientDetails.Models.ChecklistDetails">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:EvaluationChecklist.ClientDetails.Models.CompanyDetails">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.CategoryController.Get">
+            <summary>
+            Returns a list of categories and their associated questions.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.CategoryController.GetCategoryList">
+            <summary>
+            Returns a list of categories. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.CategoryController.Options">
+            <summary>
+            We need this for CORS. if this is removed clients will receive a 405 method not allowed http error.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistController.#ctor(EvaluationChecklist.Helpers.IDependencyFactory)">
+            <summary>
+            
+            </summary>
+            <param name="dependencyFactory"></param>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistController.GetChecklist(System.Guid)">
+            <summary>
+            Returns a checklist given an Id. Will return 404 error if not found.
+            </summary>
+            <param name="id">integer</param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistController.PostChecklist(System.Guid,EvaluationChecklist.Models.ChecklistViewModel)">
+            <summary>
+            Creates/Updates the checklist. The id is a Guid. To create a new checklist generate a new Guid. 
+            </summary>
+            <param name="id">Guid</param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistController.UpdatePDF(System.Guid,EvaluationChecklist.Models.ChecklistViewModel)">
+            <summary>
+            Hack-y method to allow Submitted PDF reports to be regenerated. Action plan items should not be updated.
+            Needs a LOT of work before being used in live environment
+            </summary>
+            <param name="id">Checklist ID</param>
+            <param name="model">Checklist Model</param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistController.IsOldQaSignedOffFormat(EvaluationChecklist.Models.QuestionAnswerViewModel)">
+            <summary>
+            the old version of Qa Signed off was in the format David Brierley_06/12/2013 00:00:00_09/12/2013 00:00:00_09/12/2013 00:00:00_09/12/2013 00:00:00
+            the new version is David Brierley
+            </summary>
+            <param name="questionAnswerViewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistController.GetByClientId(System.Int32)">
+            <summary>
+            Returns a list of checklist for a given clientId
+            </summary>
+            <param name="clientId">integer</param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistController.Query(System.String,System.String,System.String,System.String,System.Boolean,System.Boolean,System.String,System.String)">
+            <summary>
+            optimised version of query checklist. Requires testing ALP
+            </summary>
+            <param name="clientAccountNumber"></param>
+            <param name="checklistCreatedBy"></param>
+            <param name="visitDate"></param>
+            <param name="status"></param>
+            <param name="includeDeleted"></param>
+            <param name="excludeSubmitted"> </param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistController.Options">
+            <summary>
+            we need this for CORS. if this is removed clients will receive a 405 method not allowed http error
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistController.DeleteChecklistQuestion(System.Guid)">
+            <summary>
+            Deletes a question from a checklist with the specified Id.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistController.GetImpressionTypes">
+            <summary>
+            Returns the impression types from the database
+            </summary>
+            <returns>Returns Ienumerable list of impression Types</returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistController.GetDistinctCreatedBy">
+            <summary>
+            Returns a list of users who have created a checklist
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistController.CopyToSiteWithoutResponses(System.Guid,System.Int32,System.Boolean,System.Int32[])">
+            <summary>
+            Copies the checklist questions to a new draft checklist to the site(s) specified
+            </summary>
+            <param name="checklistId">The id of the checklist to copy</param>
+            <param name="siteIds">The peninsula site ids to copy to</param>
+            <returns></returns>
+        </member>
+        <member name="T:EvaluationChecklist.Controllers.ClientDetails.ClientController">
+            <summary>
+            we shouldn't need this controller, but client details services is not configured to allow crosss origin requests. It does not permit the OPTIONS http method.
+            </summary>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ClientDetails.ClientController.Query(System.String)">
+            <summary>
+            Returns client details by company account number. Will return 404 error if not found.
+            </summary>
+            <param name="clientAccountNumber">string</param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ClientDetails.ClientController.Get(System.Int32)">
+            <summary>
+            Returns client details by company Id. Will return 404 error if not found.
+            </summary>
+            <param name="id">integer</param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ClientDetails.ClientController.GetEmployees(System.Int64)">
+            <summary>
+            Returns the employees for the client
+            </summary>
+            <param name="clientId">The client Id</param>
+            <returns>List of employees associated with the client</returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ClientDetails.ClientController.Options">
+            <summary>
+            we need this for CORS. if this is removed clients will receive a 405 method not allowed http error
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistTemplateController.Get">
+            <summary>
+            Returns a list of checklist templates with asssociated questions
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistTemplateController.GetWithQuestionIds">
+            <summary>
+            Returns a list of checklist templates with asssociated question Ids only
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistTemplateController.GetById(System.Guid)">
+            <summary>
+            Return a checklist template with questions
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistTemplateController.DeleteTemplate(System.Guid)">
+            <summary>
+            Deletes a template
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ChecklistTemplateController.GetTemplateName(System.Guid)">
+            <summary>
+            returns the template name
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ConsultantController.Get">
+            <summary>
+            Returns a list of consultants
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ConsultantController.Put(System.String)">
+            <summary>
+            Add consultant
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ConsultantController.Post(EvaluationChecklist.Models.ConsultantViewModel)">
+            <summary>
+            Update consultant
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.ConsultantController.Delete(System.Guid)">
+            <summary>
+            Marks a consultant as deleted
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.DocumentController.CreateComplianceReviewPDF(System.String)">
+            <summary>
+            Create PDF version of report, always including  Action plan and Compliance review
+            </summary>
+            <param name="checklist">json value of the checklist model</param>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.DocumentController.CreateClientPreviewPDF(System.String)">
+            <summary>
+            Create PDF version of report, optionally including Action plan and Compliance review
+            </summary>
+            <param name="checklist">json value of the checklist model</param>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.DocumentController.CreateActionPlanPDF(System.String)">
+            <summary>
+            Create PDF version of report, only including Action plan
+            </summary>
+            <param name="checklist">json value of the checklist model</param>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.IndustryController.Get">
+            <summary>
+            Returns a list of industries and their associated questions.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.IndustryController.UpdateIndustryQuestions(EvaluationChecklist.Models.IndustryQuestionModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.IndustryController.UpdateIndustry(EvaluationChecklist.Models.IndustryViewModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.IndustryController.Options">
+            <summary>
+            We need this for CORS. if this is removed clients will receive a 405 method not allowed http error.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:EvaluationChecklist.Controllers.QaAdvisorController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.QaAdvisorController.#ctor(EvaluationChecklist.Helpers.IDependencyFactory)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.QaAdvisorController.Get">
+            <summary>
+            Returns a list of qa Advisors
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.QuestionController.GetCompleteSetOfQuestions">
+            <summary>
+            Returns a list of all questions that are not specific to a client.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.QuestionController.GetQuestionsByClient(System.String)">
+            <summary>
+            Returns a list of client specific questions. If id not found, returns a 404 error page
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.QuestionController.GetAllClientQuestions">
+            <summary>
+            Returns a list of questions grouped by CAN
+            </summary>
+            <returns>List of clients and their questions</returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.QuestionController.PostQuestion(EvaluationChecklist.Models.AddEditQuestionViewModel)">
+            <summary>
+            Update or add new question
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.QuestionController.UpdateQuestionOrder(System.Collections.Generic.List{EvaluationChecklist.Models.QuestionOrderViewModel})">
+            <summary>
+            Update question order
+            </summary>
+            <param name="questionsOrder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.QuestionController.Options">
+            <summary>
+            We need this for CORS. if this is removed clients will receive a 405 method not allowed http error.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Controllers.SpellCheckController.Post(EvaluationChecklist.Controllers.SpellCheckRequest)">
+            <summary>
+            Currently we are using the implementation of the spell checker web services at http://jquery-spellchecker.badsyntax.co/webservices/php/SpellChecker.php
+            Ideally we would like a local version of spellchecker where we can use an English-UK but due to time constraints we haven't done this yet.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EvaluationChecklist.Helpers.EnumExtensions.ToDescription(System.Enum)">
+            <summary>
+            Retrieve the description on the enum.
+            Then when you pass in the enum, it will retrieve the description
+            </summary>
+            <param name="en">The Enumeration</param>
+            <returns>A string representing the friendly name</returns>
+        </member>
+        <member name="M:EvaluationChecklist.Helpers.QualityControlService.GetNextQaAdvisorInTheRotation(BusinessSafe.Domain.Entities.SafeCheck.QaAdvisor)">
+            <summary>
+            returns the next qaAdvisor in the rotation after the specified qaAdvisor
+            </summary>
+            <param name="precedingQaAdvisor"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

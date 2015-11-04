@@ -1,0 +1,27 @@
+﻿<div class="modal-header">
+     <img class="pull-right" src="Bootstrap/img/icon-response.png" ng-click="cancel()" style="padding-right: 10px" />
+    <h4>Add question from database ({{Category.Title}}) </h4>
+</div>
+    <div class="modal-body">
+        <div id="catResponseDetailsChildId" ng-repeat="question in questions | filter:{Deleted:false} | orderBy: 'OrderNumber':false">
+            <div class="row-fluid col-wrap">
+                <div></div>
+
+                <div class="col span1">
+                    <input type="checkbox" id="{{question.Id}}" ng-model="question.Selected" />
+                </div>
+                <div class="col span10">
+                    <label for="{{question.Id}}">
+                        {{question.Text}}
+                    </label>
+                </div>
+            </div>
+            <br/>
+        </div>
+    </div>
+<div class="modal-footer">
+    <div class="pull-right">
+        <button class="btn btn-info btn-color-style2" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-primary" ng-click="ok()">Ok</button>
+    </div>
+</div>

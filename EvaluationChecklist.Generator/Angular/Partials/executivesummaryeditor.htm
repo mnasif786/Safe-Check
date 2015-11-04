@@ -1,0 +1,48 @@
+﻿<style type="text/css">
+    .mce_jqueryspellchecker .mceIcon
+    {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHtSURBVDjLY/j//z8DJZiBKgY49drM9J3idhLEtu+xjvea4nLNqsVspnWr2S6QmF6+Zol2ltpq5QSlmcpxijMxDABp9pjkuMuu28rIpsMi3rLZFKzIus38mm6OuqRxpf41nC5w7rOJd+i1ngnUXGLTbj7Tsskk3rbL8ppZreEu7Ry1mWpJSvHK8Uoz0TWK5U/nYIg8y8rgPsl+l12P1WqgbTPdJtk/AtoWb1CkBdagnqyyWilawVM/Rw/FBQyx540ZGm/eYIg8P43BdYLdSZiEcYXeTJB/TaoNroH8q5OldVIhXE5SKUqhXSNRfZdKvPKVkOrED+L9d/8wN998w+B4XIL40I48K8FQf/O6+7In/7mbb35hsD2qjBKNDLU3ExjKb7pi1Rx61ke89+6fwBVP/jPXXn/HYHlYGiMdMJTe1JJc/PgHQ/X1xQyplznBYuFnmRiiz062nPfof8DSJ/8ZSq8/ZzA9KIEzIQE1Vvuuf/6fufv2M4bgsz4MxVdPui8Cal4C1Jx/+RGDPqpmTANiz7MAvXI+bO2L/5ZzHvzP2Pjif8DCx/8ZMi/fY9DcL0FUUmbwPKkg3Hr7T+WOV//95j/8z5B6/jaD6l4JkvIC0J9FTtPu/2dIPn+PQXG3BFmZiUFzbweDLH7NVMmNAOGld33BRiNUAAAAAElFTkSuQmCC) no-repeat center center !important;
+    }
+    
+    .mce-i-jqueryspellchecker
+    {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHtSURBVDjLY/j//z8DJZiBKgY49drM9J3idhLEtu+xjvea4nLNqsVspnWr2S6QmF6+Zol2ltpq5QSlmcpxijMxDABp9pjkuMuu28rIpsMi3rLZFKzIus38mm6OuqRxpf41nC5w7rOJd+i1ngnUXGLTbj7Tsskk3rbL8ppZreEu7Ry1mWpJSvHK8Uoz0TWK5U/nYIg8y8rgPsl+l12P1WqgbTPdJtk/AtoWb1CkBdagnqyyWilawVM/Rw/FBQyx540ZGm/eYIg8P43BdYLdSZiEcYXeTJB/TaoNroH8q5OldVIhXE5SKUqhXSNRfZdKvPKVkOrED+L9d/8wN998w+B4XIL40I48K8FQf/O6+7In/7mbb35hsD2qjBKNDLU3ExjKb7pi1Rx61ke89+6fwBVP/jPXXn/HYHlYGiMdMJTe1JJc/PgHQ/X1xQyplznBYuFnmRiiz062nPfof8DSJ/8ZSq8/ZzA9KIEzIQE1Vvuuf/6fufv2M4bgsz4MxVdPui8Cal4C1Jx/+RGDPqpmTANiz7MAvXI+bO2L/5ZzHvzP2Pjif8DCx/8ZMi/fY9DcL0FUUmbwPKkg3Hr7T+WOV//95j/8z5B6/jaD6l4JkvIC0J9FTtPu/2dIPn+PQXG3BFmZiUFzbweDLH7NVMmNAOGld33BRiNUAAAAAElFTkSuQmCC) no-repeat center center !important;
+    }
+</style>
+<header class="header row-fluid">
+	<div class="span2">
+	<img class="search-hearder" src="Bootstrap/img/search.png" />
+	</div>
+	<h3 class="text-center span8"><strong>SafeCheck</strong> Executive Summary Letter</h3>
+</header>
+<div class="content report_summary">
+    <div class="row-fluid">
+        <div class="span12">
+            <form id="form1" action="{{PDFDownloadUrl()}}" method="POST">
+                <input name="checklist" type="hidden" value="{{Checklist}}" />
+                <input class="btn btn-primary btn-style4" type="submit" value="Download PDF" ng-show="isOnlineAndWorkingOnline(null)" />
+                <input class="btn btn-primary btn-style4" type="submit" formaction="{{ClientPreviewPDFDownloadUrl()}}" value="Client Preview PDF" ng-show="isOnlineAndWorkingOnline(null)" /> 
+                <a href="/print.htm#/actionplan/{{Checklist.Id}}" target="_blank" ng-hide="Checklist.SpecialReport">View report</a>
+                <span class="pull-right" style="font-style: italic"> To add a new line use Shift+Enter. To add a new paragraph press Enter.</span>
+               
+                             
+            </form>
+                      
+            <textarea id="spellTest" ui-tinymce="tinymceOptions" ng-model="Checklist.CoveringLetterContent"
+                      width="80%" style="height: 700px"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="row-fluid">
+        <div class="span12 pull-right">
+            <div class="pull-right">
+                <button class="btn btn-primary" type="button" ng-click="doClose()">
+                    Close</button>
+                <button class="btn btn-primary" ng-hide="!IsEditLetter" type="button" ng-click="save()">
+                    Save</button>
+            </div>
+        </div>
+    </div>
+</div>

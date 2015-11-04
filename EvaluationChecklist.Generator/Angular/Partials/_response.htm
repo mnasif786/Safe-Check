@@ -1,0 +1,99 @@
+﻿<div class="row-fluid" id="catResponseDetailsFatherId">
+    <div class="row-fluid">
+        <div class="response-details-label">
+            <h4>Response Details </h4>
+        </div>
+        <div class="catResponseDetailsChildId-float">
+            <label>
+                <img class="catResponseDetailsChildId-icon" src="Bootstrap/img/icon-response.png" ng-click="cancel()" />
+            </label>
+        </div>
+    </div>
+    <div ng-class="responsedetailsbody" style="margin-left: 17px">
+
+        <div class="modal-alerts">
+            <alert ng-repeat="alert in validationMessages" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+        </div>
+        
+        <div class="row-fluid" ng-show="isQuestionTextEditable(questionAnswer)">
+            <label class="responsePopupLabel">Question Text:</label>
+            <textarea cols="40" rows="5" class="responsePopupFullWidth" ng-model="questionAnswer.Question.Text" maxlength="500"></textarea>
+        </div>
+
+        <div class="row-fluid" ng-show="showAreaOfNonCompliance(questionAnswer)">
+            <label class="responsePopupLabel">
+               Non compliance - this data wil be shown as bullet points in the Summary letter and in the Action Plan
+            </label>
+            <textarea cols="40" class="responsePopupFullWidth msd-elastic" ng-model="questionAnswer.Answer.AreaOfNonCompliance" maxlength="1000"></textarea>
+        </div>
+
+        <div class="row-fluid">
+            <label class="responsePopupLabel">Supporting Evidence</label>
+            <textarea cols="40" class="responsePopupFullWidth msd-elastic" ng-model="questionAnswer.Answer.SupportingEvidence" maxlength="1000"></textarea>
+        </div>
+       
+        <div class="row-fluid" ng-show="questionAnswer.Answer.Response.Title=='Acceptable'">
+            <label class="radio span6">
+                <input type="radio" ng-model="questionAnswer.Answer.SupportingDocumentationStatus" value="Verified" ng-change="verifiedChanged()" />
+                {{verifiedLabel}}
+            </label>
+            <div ng-show="isSupportDocumentationDateVisible(questionAnswer)">
+                <input class="span2" size="16" type="text" readonly ng-model="questionAnswer.Answer.SupportingDocumentationDate" customdatepicker="" ng-show="questionAnswer.Answer.SupportingDocumentationStatus != '' && questionAnswer.Answer.SupportingDocumentationStatus != null" />
+                <span class="append-icon" ng-show="questionAnswer.Answer.SupportingDocumentationStatus != '' && questionAnswer.Answer.SupportingDocumentationStatus != null">
+                    <img src="Bootstrap/img/icon-calendar.png" ng-click="open()" />
+                </span>
+            </div>
+        </div>
+        <div class="row-fluid" ng-show="questionAnswer.Answer.Response.Title=='Acceptable'">
+            <label class="radio inline">
+                <input type="radio" ng-model="questionAnswer.Answer.SupportingDocumentationStatus" value="Reported"  ng-change="verifiedChanged()"/>
+                No documentary evidence seen, reported to be in place
+            </label>
+        </div>
+        <div class="row-fluid" ng-show="questionAnswer.Answer.Response.Title!='Acceptable'">
+            <label class="responsePopupLabel">Action Required:</label>
+            <textarea cols="40" class="responsePopupFullWidth msd-elastic" ng-model="questionAnswer.Answer.ActionRequired" maxlength="1000"></textarea>
+        </div>
+        <div class="row-fluid">
+            <label class="responsePopupLabel span4">Guidance Notes:</label>
+            <input class="span6" type="text" ng-model="questionAnswer.Answer.GuidanceNotes" />
+        </div>
+
+        <div class="row-fluid" ng-show="isNegativeResponse(questionAnswer.Answer.Response)">
+            <label class="responsePopupLabel span4">Agreed Timescale:</label>
+            <select class="span6" ng-model="questionAnswer.Answer.Timescale" ng-options="timescale.Name for timescale in Timescales | filter:displayTimeScaleInDropDown ">
+                <option value="">-- Select --</option>
+            </select>
+        </div>
+        <div class="row-fluid" ng-show="isNegativeResponse(questionAnswer.Answer.Response)">
+            <label class="responsePopupLabel span4">Assigned To:</label>
+            <select class="span6" ng-model="questionAnswer.Answer.AssignedTo" ng-options="employee.FullName for employee in ClientEmployees">
+                <option value="">-- Select --</option>
+            </select>
+        </div>
+        <div class="row-fluid" ng-show="isEmployeeNotListed()">
+            <label class="responsePopupLabel span4">Not Listed:</label>
+            <input class="span6" type="text" ng-model="questionAnswer.Answer.AssignedTo.NonEmployeeName" maxlength="100" typeahead="nonEmployee for nonEmployee in nonEmployees | filter:$viewValue | limitTo:8" />
+        </div>
+        <div class="row-fluid" ng-show="areQACommentsEnabled()">
+            <label class="responsePopupLabel">QA Comments:</label>
+            <textarea cols="40" rows="5" class="responsePopupFullWidth" ng-model="questionAnswer.Answer.QaComments" maxlength="1000"></textarea>
+            <label class="responsePopupLabel" ng-show="userHasQaRole">
+                QA Complete<input type="checkbox" ng-model="qaSignedOff" ng-change="signOff()">
+            </label>
+            <label class="responsePopupLabel" ng-show="questionAnswer.Answer.QaComments != null && questionAnswer.Answer.QaComments != '' ">
+                Consultant Revised
+                <input type="checkbox" ng-model="questionAnswer.Answer.QaCommentsResolved" />
+            </label>
+        </div>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="response-popup-footer span12">
+        <div class="pull-right">
+            <button class="btn btn-info btn-color-style2" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+        </div>
+    </div>
+</div>
+

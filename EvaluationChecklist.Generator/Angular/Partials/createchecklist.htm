@@ -1,0 +1,55 @@
+﻿<header class="header row-fluid ng-scope">
+    <div class="back-left span3">
+        <img src="Bootstrap/img/icon-left-arrow.png" /> 
+        <span ng-click="cancelCreateChecklist()">Back to site reports</span>
+    </div>
+        <h3 class="text-center span6">Create <strong>SafeCheck</strong> Report Template</h3>
+</header>
+
+
+<div id="create_report" class="content" style="padding-top:10px">
+    <form class="search-form" ng-show="isOnlineAndWorkingOnline(null)">
+        <h4>Generate By</h4>
+        <div class="row-fluid">
+            <div class="span6">
+                <span class="span3">Industry</span>
+                <select class="span9" ng-model="selectedIndustry" ng-options="industry.Title for industry in Industries | filter: {Deleted: 'false'}" ng-change="industryChanged()">
+                    <option value="">-- Select Industry --</option>
+                </select>
+            </div>
+            <div class="span6">
+                <span class="span3">Bespoke</span>
+                <select class="span9" ng-model="selectedBespokeTemplate" ng-options="template.Title for template in BespokeTemplates | filter: {Deleted: 'false'}" ng-change="bespokeChanged()">
+                    <option value="">-- Select Bespoke Template --</option>
+                </select>
+            </div>
+        </div>
+        <h4>Visit Details</h4>
+        <div class="row-fluid">
+            <div class="span6">
+                <span class="span3">Visit Date</span>
+                <input class="span4" size="16" type="text" ng-model="visitDate" customdatepicker="" />
+                <span class="add-on append-icon">
+                    <img src="Bootstrap/img/icon-calendar.png" ng-click="open()" />
+                </span>
+            </div>
+            <div class="span6">
+                <span class="span3">Jurisdiction</span>
+                <label class="span2 radio inline jurisdiction"><input type="radio" value="UK" ng-model="selectedJurisdiction" />UK</label> 
+                <label class="span2 radio inline jurisdiction"><input type="radio" value="ROI" ng-model="selectedJurisdiction" />ROI</label> 
+                <label class="span2 radio inline jurisdiction"><input class="" type="radio" value="NI" ng-model="selectedJurisdiction" />NI</label> 
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span6">
+                <button class="btn btn-primary" type="button" ng-click="createNewChecklist(siteId)">Create</button>
+                <button class="btn btn-info" type="button" ng-click="cancelCreateChecklist()">Cancel</button>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+        </div>
+    </form>
+
+    <div ng-show="!isOnlineAndWorkingOnline(null)"><p>This feature is not available when working offline.</p></div>
+</div>

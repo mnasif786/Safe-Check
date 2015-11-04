@@ -1,0 +1,16 @@
+﻿
+<div class="modal-header">
+    <img class="pull-right" src="Bootstrap/img/icon-response.png" ng-click="cancel()" />
+    <h4>Add Bespoke Question</h4>
+</div>
+<div class="modal-body">
+    <label>Question Text:</label>
+    {{ newQuestion.Text }}
+            <textarea cols="40" rows="5" ng-model="newQuestion.Question.Text" maxlength="500" style="width:98%"></textarea>
+</div>
+<div class="modal-footer">
+    <div class="pull-right">
+        <button class="btn btn-info btn-color-style2 btn-popup" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-primary btn-color-style1 btn-popup" ng-click="ok()">OK</button>
+    </div>
+</div>

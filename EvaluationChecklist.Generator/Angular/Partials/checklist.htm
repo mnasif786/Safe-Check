@@ -1,0 +1,681 @@
+﻿<header class="header row-fluid">
+    <div class="back-left span3">
+        <img src="Bootstrap/img/icon-left-arrow.png" />
+        <a class="header-link" href="" ng-click="backToReportSummary()">Back to site reports</a>
+    </div>
+    <h3 class="text-center span5">Create <strong>SafeCheck</strong> Report</h3>
+    <div class="header-right span4">
+
+        <button class="btn btn-primary btn-color-style1 btn-RecordIRN" type="button" ng-click="recordIRN()" ng-disabled="readonly" ng-show="!Checklist.SpecialReport">Record IRN</button>
+
+        <form class="frm-print-action-plan" id="print-action-plan-report-form" action="{{ActionPlanPDFDownloadUrl()}}" method="POST">
+            <input name="checklist" type="hidden" value="{{checklistToPrint}}" />
+            <input class="btn btn-primary btn-color-style1 btn-RecordIRN" style="" type="submit" value="Print AP" title="Print Action Plan PDF" ng-click="checklistToPrint = Checklist" ng-show="isOnlineAndWorkingOnline(null) && !Checklist.SpecialReport" />
+        </form>
+
+
+         <form class="frm-print-template" id="print-action-plan-template-form" action="{{AllQuestionsTemplatePDFDownloadUrl()}}" method="POST">
+            <input name="checklist" type="hidden" value="{{checklistToPrint}}" />
+            <input class="btn btn-primary btn-color-style1 btn-PrintTemplate" style="" type="submit" value="Print Template" title="Print Template PDF" ng-click="checklistToPrint = Checklist" ng-show="isOnlineAndWorkingOnline(null) && !Checklist.SpecialReport"  />
+        </form>
+
+
+        <form id="print-report-form" action="{{PDFDownloadUrl()}}" method="POST" class="download-report">
+            <input name="checklist" type="hidden" value="{{checklistToPrint}}" />
+            <input type="submit" value="" title="Download PDF" ng-click="checklistToPrint = Checklist" ng-show="isOnlineAndWorkingOnline(null)" />
+        </form>
+    </div>
+</header>
+<table class="table table-bordered client-summary-table">
+    <thead>
+        <tr>
+            <th>
+                <label>
+                    {{Checklist.ClientDetails.CAN}}</label>
+            </th>
+            <th>
+                <label>
+                    {{Checklist.ClientDetails.CompanyName}}</label>
+            </th>
+            <th>
+                <label>
+                    {{Checklist.Industry}}
+                </label>
+            </th>
+             <th class="hideAcceptable" ng-show="userHasQaRole">
+                <label>Hide Acceptable <input type="checkbox" title="Hide Acceptable" ng-model="hideAcceptableQuestionsRepsonses">
+                </label>
+            </th>
+            <th class="hideNotApplicable" ng-show="userHasQaRole">
+                <label>Hide Not Applicable <input type="checkbox" title="Hide Not Applicable" ng-model="hideNotApplicableQuestionResponses">
+                </label>
+            </th>
+        </tr>
+    </thead>
+</table>
+<div id="tabs" class="tabbable full-width-tabs">
+    <ul class="nav nav-tabs menu-tabs">
+        <li class="active" id="CLIENT SUMMARY">
+            <a href="#tab1" data-toggle="tab">CLIENT<br />
+                      SUMMARY</a> 
+        </li>
+        <li ng-repeat="category in Checklist.Categories | orderBy: 'OrderNumber': false " id="category.TabTitle" ng-click="save(false)">
+            <div class="tab-top">
+                <div ng-switch on="categoryCommentStatus(category.Id)">
+                    <div ng-switch-when="QaComments">
+                        <img src="Bootstrap/img/icon-warning.png" style="float: inherit;" title="QA Comments" alt="QA Comments" />
+                    </div>
+                    <div ng-switch-when="QaAllCommentsResolved">
+                        <img src="Bootstrap/img/icon-tick.png" style="float: inherit;" title="QA Comments Resolved" alt="QA Comments Resolved" /></div>
+                    <div ng-switch-default></div>
+                </div>
+            </div>
+            <a href="#tab_{{category.Id}}" data-toggle="tab" ng-click="setActiveTab(category.TabTitle)">{{category.TabTitle}}</a>
+        </li>
+
+        <li class="complete-review" id="COMPLETE">
+            <div class="tab-top">            
+                <div ng-switch on="executiveSummaryCommentStatus()">
+                    <div ng-switch-when="QaComments">
+                        <img src="Bootstrap/img/icon-warning.png" style="float: inherit;" title="QA Comments" alt="QA Comments" />
+                    </div>
+
+                    <div ng-switch-when="QaAllCommentsResolved">
+                        <img src="Bootstrap/img/icon-tick.png" style="float: inherit;" title="QA Comments Resolved" alt="QA Comments Resolved" />
+                    </div>
+
+                    <div ng-switch-default></div>
+                </div>
+            
+            </div>
+            <a href="#tabCompleteAndGenerate" data-toggle="tab" ng-click="setActiveTab('COMPLETE')">COMPLETE</a>
+        </li>
+
+        <li class="complete-review" id="SUBMIT">
+            <div class="tab-top"></div>
+            <a href="#tabQaReviewAndSubmit" data-toggle="tab" style="text-decoration: none" ng-click="setActiveTab('SUBMIT')">SUBMIT</a>
+        </li>
+    </ul>
+</div>
+<div class="tab-content" id="tabQuestionsContent">
+    <div class="tab-pane active" id="tab1">
+        <div class="client-summary-body">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="float-right" ng-show="isOnlineAndWorkingOnline(null) && user.role=='Consultant' && Checklist.Status!='Draft'">
+                        <label ng-show="Checklist.Favourite==null" ng-click="markChecklistAsFavourite(Checklist.Id)">
+                            Mark As Favourite
+                            <span><img src="Bootstrap/img/star-unfilled.png" alt="Favourite" title="Favourite"></span>
+                        </label>
+                        <label ng-show="Checklist.Favourite!=null" ng-click="unMarkChecklistAsFavourite(Checklist.Id)">
+                            Unmark As Favourite
+                            <span><img src="Bootstrap/img/star.png" alt="Favourite" title="Favourite"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid" style="overflow:hidden">
+                <div class="span6">
+                    <h4>Site</h4>
+                    <div class="site-visit fillcol" ng-hide="editDataEnabled" >
+                        <div class="row-fluid">
+                            <label class="span4">
+                                Site Name</label>
+                            <label class="span8">
+                                {{Checklist.Site.SiteName}}</label>
+                        </div>
+                        <div class="row-fluid">
+                            <label class="span4">
+                                Address</label>
+                            <div class="span8">
+                                <label>
+                                    {{Checklist.Site.Address1}}</label>
+                                <label>
+                                    {{Checklist.Site.Address2}}</label>
+                                <label>
+                                    {{Checklist.Site.Address3}}</label>
+                                <label>
+                                    {{Checklist.Site.Address4}}</label>
+                                <label>
+                                    {{Checklist.Site.Address5}}</label>
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <label class="span4">
+                                County</label>
+                            <label class="span8">
+                                {{Checklist.Site.County}}
+                            </label>
+                        </div>
+                        <div class="row-fluid">
+                            <label class="span4">
+                                Post Code</label>
+                            <label class="span8">
+                                {{Checklist.Site.Postcode}}
+                            </label>
+                        </div>
+                        <div class="row-fluid">
+                            <label class="span4">
+                                Phone</label>
+                            <label class="span8">
+                                {{Checklist.Site.Telephone}}
+                            </label>
+                        </div>                        
+                    </div>
+                    <div class="site-visit fillcol" ng-show="editDataEnabled" >
+                        <div class="row-fluid">
+                            <label class="span4">
+                                Site Name</label>
+                            <input type="text" class="span8" ng-show="editDataEnabled" ng-model="Checklist.Site.SiteName" />
+                        </div>
+                        <div class="row-fluid">
+                            <label class="span4">
+                                Address</label>
+                            <div class="span8">
+                                <input type="text" ng-show="editDataEnabled" ng-model="Checklist.Site.Address1" />
+                                <input type="text" ng-show="editDataEnabled" ng-model="Checklist.Site.Address2" />
+                                <input type="text" ng-show="editDataEnabled" ng-model="Checklist.Site.Address3" />
+                                <input type="text" ng-show="editDataEnabled" ng-model="Checklist.Site.Address4" />
+                                <input type="text" ng-show="editDataEnabled" ng-model="Checklist.Site.Address5" />
+                            </div>
+                        </div>
+                        <div class="row-fluid">
+                            <label class="span4">
+                                County</label>
+                            <input type="text" class="span8" ng-show="editDataEnabled" ng-model="Checklist.Site.County" />
+                        </div>
+                        <div class="row-fluid">
+                            <label class="span4">
+                                Post Code</label>
+                            <input type="text" class="span8" ng-show="editDataEnabled" ng-model="Checklist.Site.Postcode" />
+                        </div>
+                        <div class="row-fluid">
+                            <label class="span4">
+                                Phone</label>
+                            <input type="text" class="span8" ng-show="editDataEnabled" ng-model="Checklist.Site.Telephone" />
+                        </div>
+                    </div>
+                </div>
+                <div class="span6" >
+                    <div class="row-fluid">                    
+                        <h4>Visit Details</h4>
+                        <div class="site-visit">
+                            <div class="row-fluid">
+                                <label class="span4">
+                                    Created By</label>
+                                <label class="span6">
+                                    {{Checklist.CreatedBy}}</label>
+                            </div>
+                            <div class="row-fluid">
+                                <label class="span4">Visit Date</label>
+                                <input class="span4" type="text"
+                                       ng-model="Checklist.SiteVisit.VisitDate" customdatepicker="" ng-readonly="readonly" ng-disabled="readonly" />
+                                <span class="add-on append-icon" ng-hide="readonly">
+                                    <i class="icon-calendar"></i>
+                                </span>
+                            </div>
+                            <div class="row-fluid" ng-hide="true">
+                                <label class="span4">Visit By</label>
+                                <input type="text" id="visitby" placeholder="Consultants name" ng-model="Checklist.SiteVisit.VisitBy" />
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="row-fluid">                    
+                        <h4>Jurisdiction</h4>
+                        <div class="site-visit fillcol" >
+                            <div class="row-fluid">
+                                <div ng-switch on="Checklist.Jurisdiction">                                     
+                                    <label ng-switch-when="UK">United Kingdom</label>
+                                    <label ng-switch-when="ROI">Republic of Ireland</label>
+                                    <label ng-switch-when="NI">Northern Ireland</label>                                    
+                                </div>                            
+                            </div>                            
+                            <div class="row-fluid">                            
+                                <label class="span2 radio inline jurisdiction"><input type="radio" value="UK" ng-model="Checklist.Jurisdiction" />UK</label> 
+                                <label class="span2 radio inline jurisdiction"><input type="radio" value="ROI" ng-model="Checklist.Jurisdiction" />ROI</label> 
+                                <label class="span2 radio inline jurisdiction"><input class="" type="radio" value="NI" ng-model="Checklist.Jurisdiction" />NI</label> 
+                            </div>
+                                                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span9">
+                    <h4>General Notes</h4>
+                </div>
+                <div class="row-fluid">
+                    <textarea class="span12" ng-readonly="readonly" rows="6" ng-model="Checklist.ClientSiteGeneralNotes" maxlength="3000"></textarea>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <br />
+                <button class="btn btn-primary btn-style3" type="button" ng-click="backToReportSummary()">
+                    Cancel</button>
+                <div class="float-right" ng-hide="Checklist.Status=='Submitted' || readonly">
+                    <button class="btn btn-primary btn-style1" type="button" ng-click="save(true)">
+                        Save</button>
+                    <button class="btn btn-primary btn-style1" type="button" ng-click="saveAndContinue()">
+                        Save & Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane categoryTabs" ng-repeat="category in Checklist.Categories | orderBy: 'OrderNumber': false"
+         id="tab_{{category.Id}}" data-category-id="{{category.Id}}">
+
+        <div ng-switch on="category.TabTitle == activeTab">
+           <div ng-switch-when="true" ng-include src="templates.category"></div>
+        </div>
+
+        <div class="client-summary-body">
+                <div class="row-fluid">
+                    <br />
+                    <button class="btn btn-primary btn-style3" type="button" ng-click="backToReportSummary()">
+                        Cancel
+                    </button>
+                    <div class="float-right">
+                        <button class="btn btn-primary btn-style1 txtAddQuestion" type="button" ng-hide="Checklist.SpecialReport">
+                            Add Question:
+                        </button>
+                        <button class="btn btn-primary btn-style3" type="button" ng-click="openAddBespokeQuestionModal(category)" ng-disabled="readonly" ng-hide="Checklist.SpecialReport">
+                            Bespoke
+                        </button>
+                        <button class="btn btn-primary btn-style3" type="button" ng-click="openAddQuestionFromDatabaseModal(category)" ng-disabled="readonly" ng-hide="Checklist.SpecialReport">
+                            From Database
+                        </button>
+                        <button class="btn btn-primary btn-style1" type="button" ng-click="save(true)" ng-disabled="readonly">
+                            Save
+                        </button>
+                        <button class="btn btn-primary btn-style1" type="button" ng-click="saveAndContinue()" ng-disabled="readonly">
+                            Save & Continue
+                        </button>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="tab-pane" id="tabCompleteAndGenerate">
+        <div ng-switch on="'COMPLETE' == activeTab">
+            <div ng-switch-when="true">
+                <div class="content">
+                    <div class="row-fluid">
+                        <h4>Person Seen</h4>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <div class="row-fluid">
+                                <span class="span3">Main Person Seen</span>
+                                <span class="span9">
+                                    <select style="width: 100%" ng-model="Checklist.SiteVisit.PersonSeen.Id"
+                                        ng-options="employee.Id as employee.FullName for employee in ClientEmployees"
+                                        ng-change="mainPersonSeenSelected(Checklist.SiteVisit.PersonSeen.Id)"
+                                        ng-disabled="readonly">
+                                        <option value="">-- Select --</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div class="row-fluid" ng-show="isEmployeeNotListed(Checklist.SiteVisit.PersonSeen)">
+                                <span class="span3">Not Listed</span>
+                                <span class="span9">
+                                    <input style="width: 97%" type="text" maxlength="50" ng-model="Checklist.SiteVisit.PersonSeen.Name"
+                                           ng-disabled="!isEmployeeNotListed(Checklist.SiteVisit.PersonSeen)"
+                                           ng-readonly="readonly">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <div class="row-fluid">
+                                <span class="span2">Email</span>
+                                <span class="span10">
+                                    <input style="width: 85%" type="text" maxlength="50" ng-model="Checklist.SiteVisit.EmailAddress"
+                                           ng-disabled="(doesPersonHaveEmail(Checklist.SiteVisit.PersonSeen) && !isEmployeeNotListed(Checklist.SiteVisit.PersonSeen))"
+                                            ng-readonly="readonly">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid" ng-repeat="personSeen in Checklist.PersonsSeen">
+                        <div class="span6">
+                            <div class="row-fluid">
+                                <span class="span3">Person Seen</span>
+                                <span class="span9">
+                                    <select style="width: 100%" ng-model="personSeen.EmployeeId"
+                                        ng-options="employee.Id as employee.FullName for employee in ClientEmployees"
+                                        ng-change="personSeenSelected(personSeen)"
+                                        ng-disabled="readonly">
+                                        <option value="">-- Select --</option>
+                                    </select>
+
+                                </span>
+                            </div>
+                            <div class="row-fluid" ng-show="isEmployeeIdNotListed(personSeen.EmployeeId)">
+                                <span class="span3">Not Listed</span>
+                                <span class="span9">
+                                    <input style="width: 97%" type="text" maxlength="50" ng-model="personSeen.FullName" ng-disabled="!isEmployeeIdNotListed(personSeen.EmployeeId)" ng-readonly="readonly">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <div class="row-fluid">
+                                <span class="span2">Email</span>
+                                <span class="span10">
+                                    <input style="width: 85%" type="text" maxlength="50" ng-model="personSeen.EmailAddress"
+                                           ng-disabled="(doesEmployeeHaveEmail(personSeen.EmployeeId) && !isEmployeeIdNotListed(personSeen.EmployeeId))"
+                                           ng-readonly="readonly">
+                                    <button style="margin-bottom: 10px" type="button" title="Remove person seen" ng-click="RemovePersonSeen(personSeen)" ng-disabled="readonly">&times;</button>
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <button class="btn btn-info" type="button" ng-click="AddPersonSeen()" ng-disabled="readonly">Add another person seen</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="row-fluid" ng-hide="clientDetailsNotFound()">
+                        <div class="span11">
+                            <h4>Immediate Risk Notifications</h4>
+                        </div>
+                    </div>
+                    <table class="search-results table-immediate-risk" ng-hide="clientDetailsNotFound()">
+                        <tr>
+                            <th width="44%" class="title-risk-immediate">Significant Hazard Identified
+                            </th>
+                            <th width="40%" class="title-risk-immediate">Recommended Immediate Action
+                            </th>
+                            <th width="12%"></th>
+                        </tr>
+                        <tr ng-repeat="immediate in Checklist.ImmediateRiskNotifications">
+                            <td>
+                                <label class="have-row-no label-no-click">
+                                    <span class="row-no number-immediate-risk">{{$index+1}}</span> {{immediate.SignificantHazard}}
+                                </label>
+                            </td>
+                            <td>{{immediate.RecommendedImmediate}}
+                            </td>
+                            <td class="last">
+                                <a href="" ng-click="editRecordIRN(immediate)">
+                                    <img class="img-immediate-risk" src="Bootstrap/img/icon-edit.png" title="Edit IRN"
+                                        alt="Edit IRN" ng-hide="readonly" />
+                                </a><a href="" ng-click="deleteRecordIRN(immediate)" title="Delete IRN" ng-hide="readonly">
+                                    <img class="img-immediate-risk" src="Bootstrap/img/icon-delete.png" title="Delete IRN"
+                                        alt="Delete IRN" />
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="content">
+                    <div class="row-fluid">
+                        <h4>About Visit</h4>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <div class="row-fluid">
+                                <label>
+                                    Areas Visited</label>
+                                <textarea rows="4" cols="3" ng-model="Checklist.SiteVisit.AreasVisited" type="text"
+                                    class="span12" maxlength="200" ng-readonly="readonly"/>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <div class="row-fluid">
+                                <label>
+                                    Areas Not Visited</label>
+                                <textarea rows="4" cols="3" ng-model="Checklist.SiteVisit.AreasNotVisited" type="text"
+                                    class="span12" maxlength="200" ng-readonly="readonly"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span6">
+                            <div class="row-fluid">
+                                <span class="span4">Overall Impression</span>
+                                <select class="span8" ng-model="Checklist.SiteVisit.SelectedImpressionType" ng-options="impression.Title for impression in ImpressionTypes" ng-disabled="readonly">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <textarea class="span12" ng-model="Checklist.SiteVisit.SelectedImpressionType.Comments"
+                            rows="7" cols="6" maxlength="2000" required readonly>
+                            {{Checklist.SiteVisit.SelectedImpressionType.Comments}}
+                        </textarea>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="row-fluid">
+                        <h4>Report Distribution</h4>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span4">
+                            <label>
+                                Email to Main Person Seen<input type="checkbox" ng-model="Checklist.EmailReportToPerson"
+                                    class="ng-pristine ng-valid checkbox-executive" ng-disabled="readonly"></label>
+                        </div>
+                        <div class="span4">
+                            <label>
+                                Email report to others<input type="checkbox" ng-model="Checklist.EmailReportToOthers"
+                                    class="ng-pristine ng-valid checkbox-executive" ng-disabled="readonly"></label>
+                        </div>
+                        <div class="span4">
+                            <label>
+                                Send report by post<input type="checkbox" ng-model="Checklist.PostReport" class="ng-pristine ng-valid checkbox-executive" ng-disabled="readonly"></label>
+                        </div>
+                    </div>
+                    <div class="row-fluid" ng-repeat="otherEmail in Checklist.OtherEmails" ng-show="Checklist.EmailReportToOthers">
+                        <span class="span1">Name</span>
+                        <span class="span5">
+                            <input style="width: 90%" type="text" maxlength="50" ng-model="otherEmail.Name" ng-readonly="true">
+                        </span>
+                        <span class="span1">Email</span>
+                        <span class="span5">
+                            <input style="width: 80%" type="text" maxlength="50" ng-model="otherEmail.EmailAddress" ng-readonly="true">
+                            <button style="margin-bottom: 10px" type="button" title="Edit other email" ng-click="editOtherEmail(otherEmail)" ng-disabled="readonly">✎</button>
+                            <button style="margin-bottom: 10px" type="button" title="Remove other email" ng-click="RemoveOtherEmail(otherEmail)" ng-disabled="readonly">&times;</button>
+                        </span>
+                    </div>
+                    <div class="row-fluid" ng-show="Checklist.EmailReportToOthers">
+                        <div class="span6">
+                            <button class="btn btn-info" type="button" ng-click="addOtherEmail()" value="Email report to others" ng-disabled="readonly">Add another email address</button>
+                        </div>
+                    </div>
+                    <!--<div class="row-fluid" ng-show="Checklist.EmailReportToOthers">-->
+                        <!--<label>-->
+                            <!--Email report to</label>-->
+                        <!--<textarea rows="4" cols="6" ng-model="Checklist.OtherEmailAddresses" type="text"-->
+                            <!--class="span12" name="" maxlength="500" ng-readonly="readonly"/>-->
+                    <!--</div>-->
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="content">
+            <div class="row-fluid">                                                       
+                    <div ng-switch on="executiveSummaryCommentStatus()">                                               
+                        <div ng-switch-when="QaComments">
+                            <h4>Executive Summary
+                            <img src="Bootstrap/img/icon-warning.png" />                                   
+                            </h4>
+                        </div>
+                                
+                        <div ng-switch-when="QaAllCommentsResolved">
+                            <h4>Executive Summary
+                            <img src="Bootstrap/img/icon-tick.png" />                                                                       
+                            </h4>
+                        </div>                                
+                        
+                        <div ng-switch-default>
+                            <h4>Executive Summary</h4>
+                        </div>
+                    </div> 
+            </div>
+
+            <div class="row-fluid">
+
+                <div class="span4">
+
+                    <div class="row-fluid">
+                        <span class="span4">Report Type</span>
+                        <select class="span8" ng-model="selectedTemplate" ng-options="template.Title for template in Templates"
+                                ng-change="templateChanged()"
+                                ng-disabled="readonly || Checklist.SpecialReport==true">
+                            <option value="">-- Select Option --</option>
+                        </select>
+                    </div>
+
+                    <div class="row-fluid">
+                        <span class="span4"></span>
+                        <span class="span8">
+                            <button id="btn-Generate" class="btn btn-small btn-info pull-right" style="margin-right: 11px"
+                                type="button" ng-click="generateTemplate()" ng-disabled="(!isTemplateSelected || isLetterGenerated()) || readonly">
+                                Generate</button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="span5">
+                    <div class="row">                                              
+                        <span class="span7 text-right" ng-show="isLetterGenerated()">
+                            <label>Executive Summary Generated</label>                            
+                        </span>                            
+                        <span class="span5" ng-show="isLetterGenerated()">
+                                <a href="" ng-show="isLetterGenerated()" title="View" ng-click="viewTemplateLetter()">
+                                    <img src="Bootstrap/img/icon-search.png" alt="View">
+                                        </a><a href="" ng-show="isLetterGenerated() && !readonly" title="Edit" ng-click="editTemplateLetter()">
+                                    <img src="Bootstrap/img/icon-edit.png" alte="Edit">
+                                        </a><a href="" ng-show="isLetterGenerated() && !readonly" title="Delete" ng-click="deleteTemplateLetter()">
+                                    <img src="../../Bootstrap/img/icon-delete.png" alt="Delete">
+                                </a>                                                          
+                        </span>
+                    </div>
+                </div>
+
+                <div class="span3" ng-show="areExecutiveSummaryUpdatesRequired()">
+                    <div class="row-fluid">
+                        <span>
+                            <label>
+                                Consultant Revised<input type="checkbox" class="ng-pristine ng-valid checkbox-executive" ng-model="Checklist.ExecutiveSummaryQACommentsResolved" />
+                            </label>                                                                
+                        </span>
+                    </div>
+                    <div class="row-fluid">       
+                        <span>
+                            <label ng-show="userHasQaRole">
+                                QA Complete<input type="checkbox" class="ng-pristine ng-valid checkbox-executive" ng-model="ExecutiveSummarySignedOff" ng-change="signOffExecSummary()">
+                            </label>                                                       
+                        </span>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+        </div>
+        <div class="client-summary-body">
+            <div class="row-fluid">
+                <br />
+                <button class="btn btn-primary btn-style3" type="button" ng-click="backToReportSummary()">
+                    Cancel</button>
+                <label class="review-label-inline">
+                    Evaluation Report Complete
+                        <input type="checkbox" ng-model="checked" class="ng-pristine ng-valid checkbox-executive" ng-disabled="readonly"></label>
+                <div class="float-right">
+                    <button class="btn btn-primary btn-style1" type="button" ng-click="save(true)" ng-disabled="readonly">
+                        Save</button>
+                    <button class="btn btn-primary btn-style1" type="button" ng-click="completeAndGenerateChecklist()"
+                        ng-disabled="!checked || readonly" ng-show="isOnlineAndWorkingOnline(null)">
+                        Complete</button>
+                </div>
+
+            </div>
+        </div>
+        <!-- hidden input to transfer data from the letter editor window to the parent window -->
+        <input type="hidden" id="coveringLetterContent" />
+        <input type="button" id="genLetterButton" ng-click="saveLetterContent()" ng-hide="true" />
+    </div>
+    <div class="tab-pane" id="tabQaReviewAndSubmit">
+        <div class="content">
+            <div class="row-fluid" ng-show="isSubmitReadOnly">
+                <div style="width: 99%">
+                    <alert>For office use only.</alert>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <h4>Completed Details</h4>
+                <div class="span6" style="margin-left: 0px">
+
+                    <div class="row-fluid">
+                        <label class="span4">Completed by:</label>
+                        {{Checklist.CompletedBy}}
+                    </div>
+                    <div class="row-fluid">
+                        <label class="span4">Completed date:</label>
+                        {{Checklist.CompletedOn | date:'EEEE d MMMM yyyy'}}
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="row-fluid">
+                        <label class="span4">Submitted by:</label>
+                        {{Checklist.SubmittedBy}}
+                    </div>
+                    <div class="row-fluid">
+                        <label class="span4">Submitted date:</label>
+                        {{Checklist.SubmittedOn | date:'EEEE d MMMM yyyy'}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="span9">
+                        <h4>QA Comments</h4>
+                    </div>
+                    <div class="span3">  
+                        <label class="checkbox" ng-show="userHasQaRole">
+                            <input type="checkbox" ng-model="Checklist.ExecutiveSummaryUpdateRequired" ng-change="updateSubmitStatus()" />
+                                Executive Summary Update Required
+                            </label>
+                    </div>
+                </div>
+
+                <div class="row-fluid">
+                    <textarea class="span12" rows="5" ng-readonly="isSubmitReadOnly || readonly" ng-model="Checklist.QAComments" placeholder="(Please only fill in QA Comments ONLY when you are returning report to a consultant for further updates)" maxlength="500"></textarea>
+                </div>
+            </div>
+
+
+            <div class="row-fluid" ng-hide="isSubmitReadOnly">               
+                <label class="checkbox review-label-left">
+                    <input type="checkbox" ng-model="readyToSubmit" ng-disabled="isSubmitDisabled() || readonly" ng-change="readyToSubmitChanged()" />
+                    Ready to submit to client
+                </label>
+              
+                <label class="checkbox review-label-left">
+                    <input type="checkbox" ng-model="Checklist.UpdatesRequired" ng-change="updateSubmitStatus()" ng-disabled="readonly" />
+                    Updates required
+                </label>
+            </div>
+            <div class="client-summary-body">
+                <div class="row-fluid">
+                    <br />
+                    <button class="btn btn-primary btn-style3 review-cancel-inline" type="button" ng-click="backToReportSummary()">Cancel</button>
+                    <button class="btn btn-primary btn-style1" type="button" ng-click="save(true)" ng-disabled="readonly">Save</button>
+                    <div class="float-right review-submit-review-inline" ng-hide="isSubmitReadOnly">
+                        <button class="btn btn-primary btn-style1" 
+                                type="button" 
+                                ng-disabled="Checklist.UpdatesRequired == false" 
+                                ng-click="sendUpdateRequireNotification()">Notify Consultant</button>
+                                
+                        <button class="btn btn-primary btn-style3" type="button" ng-click="doReviewAndSubmit()" ng-disabled="readonly || !readyToSubmit">Submit to Client</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

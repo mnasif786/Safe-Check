@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+</head>
+    <body>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        
+        <div class="tabbable"> 
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">Client Details</a> </li>
+            <li><a href="#tab2" data-toggle="tab">Documentation</a></li>
+            <li><a href="#tab3" data-toggle="tab">Premises</a></li>
+            <li><a href="#tab4" data-toggle="tab">Fire and Emergency Arrangements</a></li>
+            <li><a href="#tab5" data-toggle="tab">Employees</a></li>
+            <li><a href="#tab6" data-toggle="tab">Work Equipment and Machinery</a></li>
+        </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <form class="">
+                        <div class="controls-row">
+                
+                            <div class="span6">
+                                <fieldset> <legend>General</legend>
+                                    <div class="control-group">
+                                        <label class="control-label span2" for="clientname">
+                                            Client Name:</label>
+                                        <select class="controls span3" id="clientname">
+                                            <option>Pound World</option>
+                                            <option>Vinci Park</option>
+                                            <option>Tesco</option>
+                                            <option>Levis</option>
+                                        </select>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label span2" for="cancode">
+                                            Can Code:
+                                        </label>
+                                        <input class="controls span3" type="text" id="cancode" placeholder="Enter a Can Code" />
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label span2" for="visitdate">
+                                            Visit Date:
+                                        </label>
+                                        <input class="controls span3" type="date" id="visitdate" />
+                                    </div>
+                                </fieldset>
+                            </div>
+                
+                            <div class="span6">
+                                <fieldset> <legend>Personal</legend>
+                                    <div class="control-group">
+                                        <label class="control-label span2" for="salutation">Salutation:</label>
+                                        <select class="controls span3" id="Select1">
+                                            <option>Mr.</option>
+                                            <option>Mrs.</option>
+                                            <option>Ms</option>
+                                            <option>Miss</option>
+                                            <option>Dr.</option>
+                                        </select>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label span2" for="forename">Forename:</label>
+                                        <input class="controls span3" type="text" id="forename" placeholder="Enter forename" />
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label span2" for="surname">Surname:</label>
+                                        <input class="controls span3" type="text" id="surname" placeholder="Enter surname" />
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label span2" for="email">Email:</label>
+                                        <input class="controls span3" type="text" id="email" placeholder="Enter email" />
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                                
+                        </div>
+        
+                        <div class="controls-row">
+                            <div class="span12">
+                                <fieldset> <legend>Address</legend>
+                                    <div class="control-group">
+                                        <label class="control-label span2" for="addline1">Address Line 1</label>
+                                        <input class="controls span9" type="text" id="addline1" placeholder="Enter address line 1" />
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label span2" for="addline2">Address Line 2</label>
+                                        <input class="controls span9" type="text" id="addline2" placeholder="Enter address line 2" />
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label span2" for="addline3">Address Line 3</label>
+                                        <input class="controls span9" type="text" id="addline3" placeholder="Enter address line 3" />
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label span2" for="postcode">Postcode</label>
+                                        <input class="controls span3" type="text" id="postcode" placeholder="Enter postcode" />
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="controls-row">
+                            <div class="form-actions span12">
+                                <button type="submit" class="btn btn-primary">
+                                    Save changes</button>
+                                <button type="button" class="btn">
+                                    Cancel</button>
+                            </div>
+                        </div>
+            
+           
+                    </form>
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <p>
+                        Documentation</p>
+                </div>
+                <div class="tab-pane" id="tab3">
+                    <p>
+                        Premises</p>
+                </div>
+                <div class="tab-pane" id="tab4">
+                    <p>
+                        Fire</p>
+                </div>
+                <div class="tab-pane" id="tab5">
+                    <p>
+                        Employees</p>
+                </div>
+                <div class="tab-pane" id="tab6">
+                    <p>
+                        Work Equipment</p>
+                </div>
+            </div>
+       </div>  
+    </body>
+</html>

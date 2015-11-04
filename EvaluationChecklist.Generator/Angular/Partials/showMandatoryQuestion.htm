@@ -1,0 +1,18 @@
+﻿<div class="modal-header">
+    <img class="pull-right" src="Bootstrap/img/icon-response.png" ng-click="cancel()" />
+    <h4>Please complete the following questions:</h4>
+</div>
+<div class="well modal-body">
+    <div ng-repeat="category in categories | orderBy: 'OrderNumber': false">
+        <h5>{{category.Title}}</h5>
+        <table>
+            <tr style="vertical-align: top" ng-repeat="questionAnswer in filterAnswerNoResponse | filter:{Question.CategoryId: category.Id} | orderBy: 'QuestionNumber'">
+                <td style="padding-right: 10px">{{questionAnswer.CategoryNumber}}.{{questionAnswer.QuestionNumber}}</td>
+                <td>{{questionAnswer.Question.Text}} <b>{{getFilterReasonText(questionAnswer.Answer)}}</b></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary btn-color-style1 btn-popup" ng-click="ok()" style="width: 120px;">OK</button>
+</div>

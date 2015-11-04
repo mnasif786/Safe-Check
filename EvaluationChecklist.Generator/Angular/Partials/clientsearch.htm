@@ -1,0 +1,88 @@
+﻿<header class="header row-fluid ng-scope">
+    <div class="back-left span3">
+        <img src="Bootstrap/img/icon-left-arrow.png" /> 
+        <span ng-click="backToReportSummary()">Back to Summary</span>
+    </div>
+    <h3 class="text-center span6"><strong>SafeCheck</strong> Find Client</h3>
+</header>
+
+<div class="content">
+    <div class="row-fluid">
+        <div class="span11">
+            <h3 class="title">
+                Find Client</h3>
+        </div>
+    </div>
+    <div ng-show="isOnlineAndWorkingOnline(null)">
+        <form class="form-search" ng-submit="loadClientDetails()" >
+            CAN
+            <input type="text" ng-model="CAN">
+            <button type="button" class="btn btn-primary" ng-click="loadClientDetails()">Search</button>
+        </form>
+        <div class="row-fluid" ng-hide="clientDetailsNotFound()">
+            <div class="span11">
+                <h3 class="title">
+                    {{ClientDetails.CAN}} - {{ClientDetails.CompanyName}} Sites List</h3>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="!isOnlineAndWorkingOnline(null)"><p>This feature is not available when working offline.</p></div>
+</div> 
+<br />
+<div ng-show="isOnlineAndWorkingOnline(null)">
+    <table class="search-results" ng-hide="clientDetailsNotFound()" >
+        <tr>
+            <th width="20%">
+                <a href="" ng-click="predicate = 'SiteName'; reverse=!reverse">Site Name</a>
+            </th>
+            <th width="40%">
+                <a href="" ng-click="predicate = 'Address1'; reverse=!reverse">Address</a>
+            </th>
+            <th width="13%">
+                <a href="" ng-click="predicate = 'Postcode'; reverse=!reverse">Post&nbsp;Code</a>
+            </th>
+            <th width="10%">
+                Status
+            </th>
+            <th width="17%">
+            </th>
+        </tr>
+        <tr ng-repeat="site in Sites |orderBy:predicate:reverse">
+            <td>
+                {{site.SiteName}}
+            </td>
+            <td>
+                {{site.Address1}}, {{site.Address2}}, {{site.Address3}},{{site.Address4}}, {{site.Address5}}, {{site.County}}
+            </td>            
+            <td>
+                {{site.Postcode}}
+            </td>
+            <td>
+                {{site.Checklist.Status}}
+            </td>
+            <td class="last">            
+                <a ng-show="site.Checklist.Status=='Submitted'" ng-href="#/evaluationchecklists/{{site.Checklist.Id}}" title="View Report">
+                    <img src="Bootstrap/img/icon-search.png"  />
+                </a>
+                
+                <a ng-show="site.Checklist.Status=='Submitted'" ng-click="openCopyChecklistWizard(site)" title="Add Report">
+                    <img src="Bootstrap/img/icon-add.png"  />
+                </a>
+
+                <a ng-show="site.Checklist.Id!=null && site.Checklist.Status!='Submitted'" ng-href="#/evaluationchecklists/{{site.Checklist.Id}}" title="Edit Report">
+                    <img src="Bootstrap/img/icon-edit.png"  />
+                </a>
+              
+                <a ng-show="site.Checklist.Id==null" ng-click="createNewChecklist(ClientDetails.CAN, site.Id)" title="Add New Report">
+                    <img src="Bootstrap/img/icon-add.png"  />
+                </a>
+
+                 <a ng-show="site.Checklist.Id != null" ng-click="cloneChecklist(site.Checklist.Id)" title="Clone Report">
+                    <img src="Bootstrap/img/icon-copy.png"  />
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+

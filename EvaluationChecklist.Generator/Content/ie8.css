@@ -1,0 +1,22 @@
+input[class*="span"],
+select[class*="span"],
+textarea[class*="span"],
+.uneditable-input[class*="span"],
+.row-fluid input[class*="span"],
+.row-fluid select[class*="span"],
+.row-fluid textarea[class*="span"],
+.row-fluid .uneditable-input[class*="span"] {
+    min-height: 20px;
+}
+
+/* this sets the width of a spanned text element so that the right edge line ups with the one above it e.g. Areas Visited on the completed tab */
+	div[class=row-fluid] > div[class=span6] > div[class=row-fluid] > textarea[class~=span12], div[class=row-fluid] > textarea[class~=span12]
+	{
+		
+		width: 98%;
+	}
+
+	div[class=row-fluid] > textarea[class~=span12]
+	{
+		width: 99%;
+	}

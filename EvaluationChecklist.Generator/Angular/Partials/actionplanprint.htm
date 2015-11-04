@@ -1,0 +1,231 @@
+﻿<div id="ActionPlanSection">
+    <h1 class="center">Health & Safety Action Plan</h1>
+    <p>
+        <table class="ActionPlanHeader">
+            <tr>
+                <td>Main Person seen:
+                </td>
+                <td>{{Checklist.SiteVisit.PersonSeen.Name}}
+                </td>
+            </tr>
+            <tr ng-show="getAdditionalPersonsSeenString() != ''">
+                <td>Person seen:
+                </td>
+                <td>{{getAdditionalPersonsSeenString()}}
+                </td>
+            </tr>
+            <tr>
+                <td>Visit date:
+                </td>
+                <td>{{Checklist.SiteVisit.VisitDate | date:'EEEE d MMMM yyyy'}}
+                </td>
+            </tr>
+            <tr>
+                <td>Areas visited:
+                </td>
+                <td>{{Checklist.SiteVisit.AreasVisited}}
+                </td>
+            </tr>
+            <tr>
+                <td>Areas not visited:
+                </td>
+                <td>{{Checklist.SiteVisit.AreasNotVisited}}
+                </td>
+            </tr>
+            <tr>
+                <td>Address:
+                </td>
+                <td>{{Checklist.Site.Address1}}, {{Checklist.Site.Address2}} , {{Checklist.Site.Address3}}, {{Checklist.Site.Address4}}, {{Checklist.Site.Postcode}}
+                </td>
+            </tr>
+        </table>
+    </p>
+    <div ng-show="Checklist.ImmediateRiskNotifications.length > 0">
+        <p>
+            <table class="ActionPlan">
+                <thead>
+                    <tr>
+                        <th colspan="4">Immediate Risk Notifications</th>
+                    </tr>
+                    <tr>
+                        <th>Ref.</th>
+                        <th>Significant Hazard Identified</th>
+                        <th>Recommended Immediate Action</th>
+                        <th>Allocated to</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="irn in Checklist.ImmediateRiskNotifications">
+                        <td>{{irn.Reference}}</td>
+                        <td>{{irn.SignificantHazard}}</td>
+                        <td>{{irn.RecommendedImmediate}}</td>
+                        <td>{{Checklist.SiteVisit.PersonSeen.Name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </p>
+    </div>
+    <p>
+        <table class="ActionPlan">
+            <thead>
+                <tr>
+                    <th>Ref.
+                    </th>
+                    <th>Non-compliance and evidence
+                    </th>
+                    <th>Action required
+                    </th>
+                    <th ng-show=showGuidanceNotes()>GN No
+                    </th>
+                    <th>Agreed Timescale
+                    </th>
+                    <th>Status
+                    </th>
+                    <th>Allocated to
+                    </th>
+                    <th>Completion Date (Initials)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="questionAnswer in Checklist.Questions | filter:hasActionRequired  | orderBy:[actionPlanItemOrder,'CategoryNumber','QuestionNumber']">
+                    <td>{{questionAnswer.CategoryNumber}}.{{questionAnswer.QuestionNumber }}
+                    </td>
+                    <td>{{questionAnswer.Answer.AreaOfNonCompliance || questionAnswer.Answer.Response.ReportLetterStatement || questionAnswer.Question.Text}}&nbsp;{{questionAnswer.Answer.SupportingEvidence}}
+                    </td>
+                    <td>{{questionAnswer.Answer.ActionRequired }}
+                    </td>
+                    <td ng-show=showGuidanceNotes()>{{questionAnswer.Answer.GuidanceNotes }}
+                    </td>
+                    <td>
+                        {{questionAnswer.Answer.Timescale.Name }}
+                    </td>
+                    <td>
+                        <img src="../../Content/Images/AmberBall.png" ng-show="questionAnswer.Answer.Response.ResponseType == 'neutral'" />
+                        <img src="../../Content/Images/RedBall.png" ng-show="questionAnswer.Answer.Response.ResponseType == 'Negative'" />
+                    </td>
+                    <td>{{AllocatedToName(questionAnswer) }}
+                    </td>
+                    <td>&nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </p>
+
+</div>
+<div id="ComplainceReviewSection">
+    <p>
+        <table class="ComplianceReviewHeader">
+            <tr>
+                <td>Main Person seen:
+                </td>
+                <td>{{Checklist.SiteVisit.PersonSeen.Name}}
+                </td>
+            </tr>
+            <tr ng-show="getAdditionalPersonsSeenString() != ''">
+                <td>Person seen:
+                </td>
+                <td>{{getAdditionalPersonsSeenString()}}
+                </td>
+            </tr>
+            <tr>
+                <td>Visit date:
+                </td>
+                <td>{{Checklist.SiteVisit.VisitDate | date:'EEEE d MMMM yyyy'}}
+                </td>
+            </tr>
+            <tr>
+                <td>Areas visited:
+                </td>
+                <td>{{Checklist.SiteVisit.AreasVisited}}
+                </td>
+            </tr>
+            <tr>
+                <td>Areas not visited:
+                </td>
+                <td>{{Checklist.SiteVisit.AreasNotVisited}}
+                </td>
+            </tr>
+            <tr>
+                <td>Address:
+                </td>
+                <td>{{Checklist.Site.Address1}}, {{Checklist.Site.Address2}} , {{Checklist.Site.Address3}}, {{Checklist.Site.Address4}}, {{Checklist.Site.Postcode}}
+                </td>
+            </tr>
+        </table>
+    </p>
+    <h1>Summary of Findings</h1>
+    <table class="ActionPlanHeader" cellspacing="0">
+
+        <tr>
+            <td>{{countOfResponseByType('Negative')}}
+            </td>
+            <td>
+                <img src="../../Content/Images/RedBall.png" />
+            </td>
+            <td>Immediate and urgent action required. Detailed on Action Plan.</td>
+        </tr>
+
+        <tr>
+            <td>{{countOfResponseByType('neutral')}}
+            </td>
+            <td>
+                <img src="../../Content/Images/AmberBall.png" />
+            </td>
+            <td>Further action is required to improve safety management. Detailed on Action Plan.</td>
+        </tr>
+
+        <tr>
+            <td>{{countOfResponseByType('Positive')}}
+            </td>
+            <td>
+                <img src="../../Content/Images/GreenBall.png" />
+            </td>
+            <td>Satisfactory, monitor and review on an on-going basis.</td>
+        </tr>
+    </table>
+    <p></p>
+    <div ng-repeat="category in Checklist.Categories">
+        <table class="ComplianceReview">
+            <thead>
+                <tr>
+                    <th>&nbsp;
+                    </th>
+                    <th>Your {{category.Title}}
+                    </th>
+                    <th>Status
+                    </th>
+                    <th>Supporting evidence - Action required
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="questionAnswer in complianceReviewItems | filter:{Question.CategoryId: category.Id} | orderBy: 'QuestionNumber'">
+                    <td>{{questionAnswer.CategoryNumber}}.{{questionAnswer.QuestionNumber }}
+                    </td>
+                    <td>{{questionAnswer.Question.Text }}
+                    </td>
+                    <td>
+                        <img src="../../Content/Images/GreenBall.png" />
+                    </td>
+                    <td>
+                        <p>
+                            {{questionAnswer.Answer.SupportingEvidence }}
+                        </p>
+                        <p>
+                            {{questionAnswer.Answer.ActionRequired }}
+                        </p>
+                        <p>
+                            <ng-switch on="questionAnswer.Answer.SupportingDocumentationStatus">
+                                <label class="responsePopupLabel span4" ng-switch-when="Verified">Documentary Evidence Seen - Next Due Date: {{questionAnswer.Answer.SupportingDocumentationDate | date:'dd/MM/yyyy'}} </label>
+                                <label class="responsePopupLabel span4" ng-switch-when="Reported">No documentary evidence seen, reported to be in place.</label>
+                            </ng-switch>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

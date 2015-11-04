@@ -1,0 +1,115 @@
+﻿<div class="modal-header">
+    <h3>Add/Edit Questions</h3>
+    <div class="modal-alerts">
+        <alert ng-repeat="alert in modalAlerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+    </div>
+</div>
+
+<div class="maintenance-model-body">
+    <div class="row-fluid">
+        <div class="span5">
+            <span>Section:</span>
+            <select ng-model="question.Category" ng-options="category.Title for category in categories">
+                <option value="">-- Select --</option>
+            </select>
+        </div>
+        <div class="span3">
+            <label>
+                Mandatory
+                <input id="chkMandatory" type="checkbox" ng-model="question.Mandatory" /></label>
+        </div>
+         <div class="span4">
+             <span>Guidance Notes:</span><input type="text" maxlength="250" ng-model="question.GuidanceNotes"  />
+    </div>
+    </div>
+    <div class="row-fluid">
+        <label>
+            Question Text:</label>
+        <textarea cols="100" rows="2" ng-model="question.Text" maxlength="300"></textarea>
+    </div>
+    <div class="row-fluid">
+        <label>
+            Acceptable
+            <input type="checkbox" ng-model="question.AcceptableEnabled" /></label>
+        <textarea cols="40" rows="3" maxlength="500" ng-model="question.SupportingEvidence" ng-show="question.AcceptableEnabled"></textarea>
+    </div>
+    <div class="row-fluid">
+        <label>
+            Unacceptable
+            <input type="checkbox" ng-model="question.UnacceptableEnabled" /></label>
+        <textarea cols="40" rows="2" maxlength="500" ng-model="question.ActionRequired"  ng-show="question.UnacceptableEnabled"></textarea>
+    </div>
+    <div class="row-fluid">
+        <label>
+            Improvement Required
+            <input type="checkbox" ng-model="question.ImprovementRequiredEnabled" /></label>
+        <textarea cols="40" rows="3" maxlength="500" ng-model="question.ImprovementRequired" ng-show="question.ImprovementRequiredEnabled"></textarea>
+    </div>
+    <div class="row-fluid">
+        <label>
+            Not applicable
+            <input type="checkbox" ng-model="question.NotApplicableEnabled" /></label>
+    </div>
+  
+  <br/>
+   <div class="row-fluid">        
+        <label>Area of non-compliance:</label>          
+        <textarea cols="100" rows="2" ng-model="question.AreaOfNonCompliance" maxlength="300"></textarea>             
+    </div>    
+
+    <div class="row-fluid">                
+         <div class="span12" >
+            <span>Heading:</span>
+            <select style="width:auto;" ng-model="question.AreaOfNonComplianceHeadingId" ng-options="heading.Id as heading.Name for heading in question.AreaOfNonComplianceHeadings">
+                <option value="">-- Select --</option>
+            </select>
+        </div>            
+
+    </div>    
+
+
+    <div class="row-fluid">
+        <br/>
+        <label>Include question in following templates:</label>       
+        
+        <div ng-repeat="(index, industry) in industries |filter:{Deleted:false}">
+            <span ng-switch on="index % 3">
+
+                <span ng-switch-when="0">                    
+                    <div class="row-fluid">
+                        <div class="span4" ng-show="industries[$index+0]">
+                            <label class="checkbox" >
+                                <input type="checkbox" ng-model="industries[$index+0].Selected">{{industries[$index+0].Title}}</input>                 
+                            </label>                        
+                        </div>
+
+                        <div class="span4" ng-show="industries[$index+1]">
+                            <label class="checkbox" class="span4" ng-show="industries[$index+1]">
+                                <input type="checkbox" ng-model="industries[$index+1].Selected">{{industries[$index+1].Title}}</input>                 
+                            </label>    
+                        </div>
+
+                        <div class="span4" ng-show="industries[$index+2]">
+                            <label class="checkbox" class="span4" ng-show="industries[$index+2]">
+                                <input type="checkbox" ng-model="industries[$index+2].Selected">{{industries[$index+2].Title}}</input>                 
+                            </label>    
+                        </div>
+                    </div>
+                </span>
+
+            </span>
+        </div>
+
+
+    </div>    
+
+   
+</div>
+
+<div class="modal-footer">
+        <button class="btn btn-info btn-color-style2 btn-popup" ng-click="cancel()">
+            Cancel</button>
+        <button class="btn btn-primary btn-color-style1 btn-popup" ng-click="save()">
+            Save</button>
+</div>
+

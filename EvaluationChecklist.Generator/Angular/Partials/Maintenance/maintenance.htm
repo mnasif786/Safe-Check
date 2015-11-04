@@ -1,0 +1,294 @@
+﻿<header class="header row-fluid">
+    <h3 class="text-center span12"><strong>SafeCheck</strong> Maintenance Tool</h3>
+
+</header>
+
+<div id="tabs" class="tabbable maintenance-full-width-tabs">
+    <ul class="nav nav-tabs menu-tabs">
+        <li class="active">
+            <a href="#tabQuestions" data-toggle="tab" ng-click="setActiveTab='tabQuestions'">Questions</a>
+        </li>
+        <li class="tab-top">
+            <a href="#tabTemplate" data-toggle="tab" ng-click="setActiveTab='tabTemplate'">Templates</a>
+        </li>
+        <li class="tab-top">
+            <a href="#tabQA" data-toggle="tab" ng-click="setActiveTab='tabQA'">QA</a>
+        </li>
+        <li class="tab-top">
+            <a href="#tabConsultants" data-toggle="tab" ng-click="setActiveTab='tabConsultants'">Consultants</a>
+        </li>
+        <li class="tab-top">
+            <a href="#tabReports" data-toggle="tab" ng-click="setActiveTab='tabReports'">Reports</a>
+        </li>
+    </ul>
+
+</div>
+<div class="tab-content" id="tabQuestionsContent">
+    <div class="tab-pane active" id="tabQuestions">
+        <div class="content">
+            <div class="row-fluid">
+                <div class="span11">
+                    <h3>Search Questions</h3>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
+                    <label class="span3">
+                        Section</label>
+                    <select class="span9" ng-model="selectedCategory" ng-options="category.Title for category in categories | orderBy: 'Title'">
+                        <option value="">-- Select Section --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="span3"></div>
+                    <button class="btn btn-primary btn-color-style2" ng-click="clear()">
+                        Clear</button>
+                </div>
+            </div>
+        </div>
+        <div ng-switch on="setActiveTab">
+            <table ng-switch-when="tabQuestions" class="table table-bordered">
+                <thead>
+                    <tr class="maintenance-header">
+                        <th colspan="5"><button class="pull-right btn btn-primary" ng-click="AddEditQuestion()">Add a new Question</button></th>
+                    </tr>
+                    <tr>
+                        <th><label ng-click="predicate = 'OrderNumber'; reverse=!reverse">Order Number</label></th>
+                        <th><label ng-click="predicate = 'Category.Title'; reverse=!reverse">Section</label></th>
+                        <th><label ng-click="predicate = 'Text'; reverse=!reverse">Questions</label></th>
+                        <th><label ng-click="predicate = 'Mandatory'; reverse=!reverse">Mandatory</label></th>
+                        <th colspan="2">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody id="header-font-weight">
+                    <tr ng-repeat="question in questions | filter:filterQuestions  | orderBy:predicate:reverse">
+                        <td>{{question.OrderNumber}}</td>
+                        <td>{{question.Category.Title}}</td>
+                        <td>{{question.Text}}</td>
+                        <td>{{GetMandatoryText(question.Mandatory)}}</td>
+                        <td style="width: 76px;">
+                            <a href="" title="Edit" ng-click="AddEditQuestion(question)">
+                                <img src="Bootstrap/img/icon-edit.png"></a>
+                            <a href="" title="Archive" ng-click="archiveQuestion(question)">
+                                <img src="Bootstrap/img/icon-delete.png"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane" id="tabTemplate">
+        <div class="content">
+            <div class="row-fluid">
+                <div class="span11">
+                    <h3>Search Template</h3>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
+                    <label class="span3">
+                        Industry</label>
+                    <select class="span9" ng-model="selectedIndustry" ng-options="industry.Title for industry in industries | filter: {Deleted: 'false'}" ng-change="industryChanged()">
+                        <option value="">-- Select Industry --</option>
+                    </select>
+                </div>
+                <div class="span6">
+                    <label class="span3">
+                        Bespoke</label>
+                    <select class="span9" ng-model="selectedBespoke" ng-options="template.Title for template in BespokeTemplates | filter: {Deleted: 'false'}" ng-change="bespokeChanged()">
+                        <option value="">-- Select Bespoke --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span2">
+                    <button class="btn btn-primary" type="button" ng-click="saveQuestionOrder()" ng-disabled="selectedIndustry==null && selectedBespoke==null">Save Question Order</button>
+                </div>
+                <div class="span7">
+                </div>
+                <div class="span1">
+                    <label>
+                        Draft
+                        <input type="checkbox" class="checkbox-maintenance" ng-model="selectedTemplate.Draft" ng-click="ActivateTemplate()" ng-disabled="selectedTemplate==null" /></label>
+                </div>
+                <div class="span2">
+                    <button class="btn btn-primary" type="button" ng-click="cloneTemplate()" ng-disabled="selectedIndustry==null && selectedBespoke==null">Clone this template</button>
+                </div>
+            </div>
+        </div>
+        <br />
+      
+            <table class="table table-bordered maintenance">
+                <thead>
+                <tr class="maintenance-header">
+                    <th><label>{{selectedIndustry.Title}} {{selectedBespoke.Title}}</label></th>
+                    <th>
+                        <div class="pull-right" >
+                            <a ng-click="renameTemplate()" ng-show="selectedIndustry!=null || selectedBespoke!=null">
+                                <img src="Bootstrap/img/icon-edit.png" title="Rename Template">
+                            </a>
+                            <a ng-click="deleteTemplate()" ng-show="selectedIndustry!=null || selectedBespoke!=null">
+                                <img src="Bootstrap/img/icon-delete.png" title="Delete Template">
+                            </a>
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        <div ng-switch on="setActiveTab">
+            <div ng-switch-when="tabTemplate">
+                <div id="CategoryTabs" class="tabbable maintenance-full-width-tabs" ng-hide="displayCategoryTabs()">
+                    <ul class="nav nav-tabs menu-tabs">
+                        <li ng-repeat="category in categories | orderBy: 'OrderNumber': false " id="CategoryTabsLine" ng-class="{active: $index == 0}">
+                            <a href="#tab_{{category.Id}}" data-toggle="tab">{{category.TabTitle}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="displayTabsPane" ng-hide="displayCategoryTabs()">
+                    <div class="tab-pane" ng-repeat="category in categories | orderBy: 'OrderNumber': false" id="tab_{{category.Id}}" data-category-id="{{category.Id}}" ng-class="{active: $index == 0}">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>{{category.Title}}
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Order Number
+                                    </th>
+                                    <th>Questions
+                                    </th>
+                                    <th>Mandatory
+                                    </th>
+                                    <th>Remove Question
+                                    </th>
+                                    <th>&nbsp;
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="question in questions | filter:{CategoryId: category.Id} | filter:filterQuestionsForTemplate | orderBy: 'OrderNumber'" ng-class="{highlightIncluded: question.Added && showAddedQuestions, highlightSelected: question.Id == selectedQuestionId}">
+                                    <td>{{question.OrderNumber}}
+                                    </td>
+                                    <td>{{question.Text}}
+                                    </td>
+                                    <td>{{GetMandatoryText(question.Mandatory)}}
+                                    </td>
+                                    <td>
+                                        <!--<button class="btn btn-primary" type="button" ng-click="RemoveQuestionFromTemplate(question)" ng-disabled="selectedIndustry==null && selectedBespoke==null">Remove</button>-->
+                                        <input type="checkbox" ng-model="question.Remove" /></td>
+                                    <td>
+                                        <a href="" title="Up" ng-click="MoveQuestionUpOnePosition(question); setSelected(question);">
+                                            <i class="icon-arrow-up"></i></a>
+                                        <a href="" title="Down" ng-click="MoveQuestionDownOnePosition(question); setSelected(question);">
+                                            <i class="icon-arrow-down"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="client-summary-body">
+                            <div class="row-fluid">
+                                <div class="float-right">
+                                    <button class="btn btn-primary btn-style3" type="button" ng-click="RemoveQuestionsFromTemplate()" ng-disabled="selectedIndustry==null && selectedBespoke==null">
+                                        Remove Questions</button>
+                                    <button class="btn btn-primary btn-style1" type="button" ng-click="showAddQuestionsToTemplateModal(category)" ng-disabled="selectedIndustry==null && selectedBespoke==null">
+                                        Include More Questions</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="tab-pane content" id="tabQA" style="border-color: rgb(204, 204, 204); border-style: solid; border-width: 1px;">
+        <div class="row-fluid">
+            To include/exclude an advisor in the rotation check/uncheck the box.
+        </div>
+        <div class="row-fluid">
+            <table class="table table-bordered" style="width: auto; background-color: white">
+                <thead>
+                    <tr>
+                        <th>Advisor</th>
+                        <th>In Rotation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="advisor in advisors |  orderBy: 'Fullname'">
+                        <td>{{advisor.Fullname}}</td>
+                        <td>
+                            <input type="checkbox" ng-model="advisor.InRotation" ng-click="updateAdvisor(advisor)" /></td>
+                    </tr>
+                </tbody>
+             </table>
+        </div>
+        <div class="row-fluid">
+            <p>The last report that required checking was assigned to: <b>{{previousQaAdvisorToBeAssignedReports.Fullname}}</b></p>
+        <p>The next report that requires checking will be assigned to: <b>{{nextQaAdvisorToBeAssignedReports.Fullname}}</b></p>
+        </div>
+    </div>
+
+    <div class="tab-pane content" id="tabConsultants" style="border-color: rgb(204, 204, 204); border-style: solid; border-width: 1px;">
+        <div class="row-fluid">
+            <div class="span12">
+                <h4>Add Consultant</h4>
+                <b>Username:</b> &nbsp;<input type="text" ng-model="newConsultantUsername" />&nbsp;
+                <button style="margin-bottom: 10px" class="btn-primary" ng-click="addConsultant(newConsultantUsername)" ng-disabled="addNewConsultantButtonDisabled">Add</button>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span6">
+                <table class="table table-bordered" style="width: auto; background-color: white">
+                    <thead>
+                        <tr>
+                            <th>Consultant</th>
+                            <th>100% QA</th>
+                            <th>Chosen Advisor</th>
+                        <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="consultant in consultants | orderBy: 'Fullname'">
+                            <td>{{consultant.Fullname}}</td>
+                            <td>
+                                <input type="checkbox" ng-model="consultant.Blacklisted" ng-click="updateConsultant(consultant)" /></td>
+                            <td>
+                            <select class="span12" ng-model="consultant.QaAdvisorAssigned" ng-options="advisor.Id as advisor.Fullname for advisor in advisors | orderBy: 'Fullname'" ng-change="updateConsultant(consultant)" >
+                                    <option value="">-- Select Advisor --</option>
+                                </select>
+                        </td>
+                        <td>
+                            <a href="" title="Delete" ng-click="deleteConsultant(consultant)">
+                                <img src="Bootstrap/img/icon-delete.png">
+                            </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="tab-pane content" id="tabReports" style="border-color: rgb(204, 204, 204); border-style: solid; border-width: 1px;">
+         <table class="table table-bordered" style="width: auto; background-color: white">
+            <thead>
+                <tr>
+                    <th>Report Type</th>
+                    <th>Action Plan</th>
+                    <th>Compliance Review</th>
+                </tr>
+                <tr ng-repeat="reportTemplate in reportTemplates">
+                    <td>{{reportTemplate.Title}}</td>
+                    <td><input type="checkbox" ng-model="reportTemplate.IncludeActionPlan"  disabled="disabled"></td>
+                     <td><input type="checkbox" ng-model="reportTemplate.IncludeComplianceReview"  disabled="disabled"></td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>    
+</div>

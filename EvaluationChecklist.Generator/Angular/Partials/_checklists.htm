@@ -1,0 +1,17 @@
+﻿<div class="row" ng-hide="clientDetailsNotFound()">
+    <div class="span12">
+        <h3>
+            Safecheck reports</h3>
+    </div>
+</div>
+
+<div class="row" ng-repeat="checklist in Checklists" ng-hide="clientDetailsNotFound()">
+    <div class="span6">
+        {{checklist.Title}}
+        {{checklist.SiteName}}
+        {{checklist.Postcode}}
+        {{checklist.VisitDate}}
+        {{checklist.VisitBy}}
+        <a href="#/evaluationchecklists/{{checklist.Id}}">View</a>
+    </div>
+</div>

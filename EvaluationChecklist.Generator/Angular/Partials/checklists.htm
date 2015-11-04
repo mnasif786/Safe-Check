@@ -1,0 +1,77 @@
+﻿<style type="text/css">
+	table.sample {
+		border-width: 2px;
+		border-spacing: 2px;
+		border-style: outset;
+		border-color: gray;
+		border-collapse: collapse;
+		background-color: white;
+	}
+	table.sample th {
+		border-width: 1px;
+		padding: 3px;
+		border-style: inset;
+		border-color: gray;
+		background-color: rgb(255, 250, 250);
+		-moz-border-radius: ;
+	}
+	table.sample td {
+		border-width: 1px;
+		padding: 3px;
+		border-style: inset;
+		border-color: gray;
+		background-color: rgb(255, 250, 250);
+		-moz-border-radius: ;
+	}
+</style>
+
+<div class="row">
+    <div class="span11">
+        <h3>
+            SafeCheck Report Summary</h3>
+            </div>
+</div>
+<div class="row">
+    <div class="span12">
+        <form class="form-search">
+        <input type="text" class="input-medium search-query" ng-model="CAN" placeholder="enter CAN">
+        <button type="submit" class="btn">
+            Find</button>
+        </form>
+    </div>
+</div>
+<h2>
+    List of checklist (requires network access)</h2>
+<table class="sample">
+    <tr>
+        <th>
+            ClientId
+        </th>
+        <th>
+            SiteID
+        </th>
+        <th>
+            Unsubmitted changes exist
+        </th>
+        <th>
+            Link
+        </th>
+    </tr>
+    <tr ng-repeat="checklist in checklists">
+        <td>
+            {{checklist.ClientId}}
+        </td>
+        <td>
+            {{checklist.SiteId}}
+        </td>
+        <td>
+            {{checklist.UnsubmittedChangesExist}}
+        </td>
+        <td>
+            <a href="#/evaluationchecklists/{{checklist.Id}}">{{checklist.Id}}</a>
+        </td>
+    </tr>
+</table>
+<br />
+<button type="submit" class="btn btn-primary" ng-click="startNewChecklist()">
+    Create new checklist</button>

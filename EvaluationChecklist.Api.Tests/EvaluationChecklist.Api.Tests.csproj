@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{121C89AF-0F78-4E07-B96C-C00EF4E0EBEA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EvaluationChecklist.Api.Tests</RootNamespace>
+    <AssemblyName>EvaluationChecklist.Api.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="BusinessSafe.Application">
+      <HintPath>..\packages\BusinessSafe\BusinessSafe.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="BusinessSafe.Data">
+      <HintPath>..\packages\BusinessSafe\BusinessSafe.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="BusinessSafe.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BusinessSafe\BusinessSafe.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="BusinessSafe.Infrastructure">
+      <HintPath>..\packages\BusinessSafe\BusinessSafe.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="BusinessSafe.Messages">
+      <HintPath>..\packages\BusinessSafe\BusinessSafe.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="BusinessSafe.Messages.Emails">
+      <HintPath>..\packages\BusinessSafe\BusinessSafe.Messages.Emails.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.1.1311.0615\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>..\packages\NServiceBus.3.2.6\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Peninsula.Security.ActiveDirectory, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Peninsula.Security.ActiveDirectory.1.0.1.0\lib\net35\Peninsula.Security.ActiveDirectory.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.3.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChecklistControllerTests\AssignChecklistToQaAdvisorTests.cs" />
+    <Compile Include="ChecklistControllerTests\CopyChecklistAnswers.cs" />
+    <Compile Include="ChecklistControllerTests\RestoreDeletedChecklistTests.cs" />
+    <Compile Include="ChecklistControllerTests\SendUpdateRequiredEmailNotificationTests.cs" />
+    <Compile Include="ChecklistControllerTests\GetChecklistsByClientIdTests.cs" />
+    <Compile Include="ChecklistControllerTests\GetChecklistTests.cs" />
+    <Compile Include="ChecklistControllerTests\PostChecklistTests.cs" />
+    <Compile Include="ChecklistControllerTests\QueryTests.cs" />
+    <Compile Include="ChecklistTemplateControllerTests\ChecklistTemplateControllerTests.cs" />
+    <Compile Include="ClientControllerTests\QueryTests.cs" />
+    <Compile Include="ConsultantControllerTests\DeleteConsultantsTests.cs" />
+    <Compile Include="ConsultantControllerTests\GetConsultantTests.cs" />
+    <Compile Include="ConsultantControllerTests\PostConsultantTests.cs" />
+    <Compile Include="DocumentControllerTests\PostActionPlanTests.cs" />
+    <Compile Include="FactoryTests\ComplianceReviewReportViewModelFactoryTests.cs" />
+    <Compile Include="Helpers\ExecutiveSummaryLetterheadFixerTests.cs" />
+    <Compile Include="Helpers\QualityControlServiceTests\AutoAssignChecklistTests.cs" />
+    <Compile Include="Helpers\QualityControlServiceTests\GetNextQaAdvisorInTheRotationTests.cs" />
+    <Compile Include="Helpers\QualityControlServiceTests\DoesChecklistNeedToBeCheckedTests.cs" />
+    <Compile Include="IndustryControllerTests\IndustryQuestionTests.cs" />
+    <Compile Include="MaintenanceUserControllerTests\MaintenanceUserTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QaControllerTests\PostGetQaAdvisorsTests.cs" />
+    <Compile Include="QaControllerTests\GetQaAdvisorsTests.cs" />
+    <Compile Include="QuestionControllerTests\GetQuestionTests.cs" />
+    <Compile Include="QuestionControllerTests\PostQuestionTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EvaluationChecklist.Generator\EvaluationChecklist.Generator.csproj">
+      <Project>{60ACB320-F59A-4EE4-9F94-E66A900D40AB}</Project>
+      <Name>EvaluationChecklist.Api</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

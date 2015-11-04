@@ -1,0 +1,20 @@
+﻿<div class="modal-header">
+    <h4>Add Report</h4>
+</div>
+<div class="modal-body">
+    <p>Add report for "{{site.SiteName}}, {{site.Address1}}, {{site.Postcode}}" as:</p>
+    <label class="radio">
+        <input type="radio" value="New" title="new" ng-model="copyOption.Value" />Create new template</label>
+    <label class="radio">
+        <input type="radio" value="WithoutResponses" ng-model="copyOption.Value" />Copy existing report without responses</label>
+    <label class="radio">
+        <input type="radio" value="WithResponses" ng-model="copyOption.Value" />Copy existing report with responses</label>
+        
+</div>
+<div class="modal-footer">
+    <div class="pull-right">
+        <button class="btn btn-info btn-color-style2" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-primary" ng-click="ok()">Ok</button>
+    </div>
+</div>
+

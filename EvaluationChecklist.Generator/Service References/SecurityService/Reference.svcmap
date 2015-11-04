@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="989d23d3-04f3-4281-a50d-eee615ae862f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://uatmaintws1:8064/SecurityService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SecurityService.xsd" MetadataType="Schema" ID="7ad55412-cc07-4de9-ac6a-5480e9a72e62" SourceId="1" SourceUrl="http://uatmaintws1:8064/SecurityService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SecurityService.disco" MetadataType="Disco" ID="1a22fad6-473b-4f56-9743-3ba9d90a01e7" SourceId="1" SourceUrl="http://uatmaintws1:8064/SecurityService.svc?disco" />
+    <MetadataFile FileName="SecurityService1.xsd" MetadataType="Schema" ID="5805687c-1e78-46d9-97d0-a42d09e5b646" SourceId="1" SourceUrl="http://uatmaintws1:8064/SecurityService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SecurityService.wsdl" MetadataType="Wsdl" ID="597810f2-a951-4e94-8f57-7f9b6ac10cde" SourceId="1" SourceUrl="http://uatmaintws1:8064/SecurityService.svc?wsdl" />
+    <MetadataFile FileName="SecurityService2.xsd" MetadataType="Schema" ID="61c7cdbd-27cd-433e-acb3-211f58c5bdd5" SourceId="1" SourceUrl="http://uatmaintws1:8064/SecurityService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SecurityService3.xsd" MetadataType="Schema" ID="88b85ec6-6cc4-4fa4-9957-a57e4a560e69" SourceId="1" SourceUrl="http://uatmaintws1:8064/SecurityService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SecurityService4.xsd" MetadataType="Schema" ID="c39447d7-cb3e-4488-b9d7-640e8bcbf923" SourceId="1" SourceUrl="http://uatmaintws1:8064/SecurityService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

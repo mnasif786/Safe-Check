@@ -1,0 +1,36 @@
+﻿<div class="row-fluid">
+    <button class="btn-primary" ng-click="checkForUpdates()">
+        Check for updates</button><br />
+    <table class="ActionPlan">
+        <thead>
+            <tr>
+                <th>
+                    Key
+                </th>
+                <th>
+                    Value
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in localStorageItems">
+                <td>
+                    {{item.Key}}
+                </td>
+                <td>
+                    {{item.ValueShort}}
+                </td>
+                <td>
+                    <button class="btn-primary btn-small" ng-click="removeFromLocalStorage(item.Key)">
+                        Remove from local storage</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    Estimate of local storage space used (characters): {{localStorageUsed}}<br />
+    <button class="btn-primary" ng-click="removeAllFromLocalStorage()">
+        Clear all from local storage</button>
+</div>

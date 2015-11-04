@@ -1,0 +1,308 @@
+﻿<header class="header row-fluid">
+    <div class="span3">
+        <img class="search-hearder" src="Bootstrap/img/search.png" ng-click="navigateToFindClient()" />
+    </div>
+    <h3 class="text-center span6"><strong>SafeCheck</strong> Report Summary</h3>   
+    <div class="span3" ng-show="isOnlineAndWorkingOnline(null)">
+        <img id="add-header" src="Bootstrap/img/add-header.png" ng-click="navigateToFindClient()" />
+    </div>
+</header>
+
+<div class="content">
+    <div class="row-fluid">
+        <div class="span11">
+            <h3>Search</h3>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="row-fluid">
+                <span class="span2">Client</span>
+                <input class="span9" type="text" ng-model="can" />
+            </div>
+        </div>
+        <div class="span6">
+            <div class="row-fluid">
+                <span class="span2">User</span>
+                <select class="span9" ng-model="selectedUser" ng-options="user for user in users() | orderBy:'toString()'">
+                    <option value="">-- Select User --</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="row-fluid">
+                <span class="span2">Status</span>
+                <select class="span9" ng-model="status.Name" ng-options="status for status in status.Names" ng-change="statusChanged()">
+                    <option value="">-- Select Status --</option>
+                </select>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="row-fluid">
+                <span class="span2">Visit Date</span>
+                <input size="16" type="text" style="width:75px;" ng-model="visitDate" customdatepicker="" />
+                <span class="append-icon">
+                    <img src="Bootstrap/img/icon-calendar.png" ng-click="open()" />
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span6" style="line-height: 20px">
+            <div ng-show="status.Name">
+                <span class="span2">From</span>
+                <input size="16" type="text" ng-model="statusFromDate" customdatepicker="" style="width: 75px"/>
+                <span class="append-icon">
+                    <img src="Bootstrap/img/icon-calendar.png" ng-click="open()" />
+                </span>
+                <span class="">To</span>
+                <input size="16" type="text" ng-model="statusToDate" customdatepicker="" style="width: 75px" />
+                <span class="append-icon">
+                    <img src="Bootstrap/img/icon-calendar.png" ng-click="open(s)" />
+                </span>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="pull-right">
+                <button class="btn btn-primary" ng-click="search(true)">
+                    Search</button>
+                <button class="btn btn-primary btn-color-style2" ng-click="clear()">
+                    Clear</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="span8">Number of reports: 
+            <ng-switch on="showMyFavourites">
+                <span ng-switch-when="true">{{favouriteSearchResultItemVisibleCount}}</span>
+                <span ng-switch-when="false">{{searchResultItemVisibleCount()}}</span>
+            </ng-switch>
+        </div>
+        <div class="span4"><button class="btn btn-primary pull-right" ng-show="user.role=='Consultant' && isOnlineAndWorkingOnline(null)" ng-click="searchMyFavourites()">Show My Favourites</button></div>
+    </div>
+</div>
+<div>
+    <div class="search-result" ng-show="showMyFavourites == false">
+        <table class="row-fluid table-bordered report-summary-table">
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        <label ng-click="predicate = 'CAN'; reverse=!reverse">
+                            CAN
+                        </label>
+                    </th>
+                    <th colspan="2">
+                        <label ng-click="predicate = 'Site.Postcode'; reverse=!reverse">
+                            Postcode
+                        </label>
+                    </th>
+                    <th>
+                        <label class="min-width" ng-click="predicate = 'VisitDate'; reverse=!reverse">
+                            Visit Date
+                        </label>
+                    </th>
+                    <th class="to-be-hidden-ipad">
+                        <label class="min-width" ng-click="predicate = 'SLA'; reverse=!reverse">SLA</label>
+                    </th>
+                    <th>
+                        <label ng-click="predicate = 'CreatedBy'; reverse=!reverse">
+                            Consultant
+                        </label>
+                    </th>
+                    <th>
+                        <label ng-click="predicate = 'Status'; reverse=!reverse">Status</label>
+                    </th>
+                    <th>
+                        <label class="min-width" ng-click="predicate = 'StatusDate'; reverse=!reverse">
+                            Status Date
+                        </label>
+                    </th>
+                    <th>
+                        <label>Assigned To</label>
+                    </th>
+                    <th>
+                        &nbsp;
+                    </th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="result in results | filter:searchResultItemVisible | orderBy:predicate:reverse">
+                <tr class="table-tr-content">
+                    <td class="no-boder-left">
+                        <label>
+                            {{result.CAN}}
+                        </label>
+                    </td>
+                    <td class="favourite-icon">
+                        <span ng-show="user.role=='Consultant' && isOnlineAndWorkingOnline(null) && !result.Deleted && result.Favourite!=null">
+                            <img src="Bootstrap/img/star15x15.png" alt="Favourite" title="Favourite">
+                        </span>
+                    </td>
+                    <td class="postcode">
+                        {{result.Site.Postcode}}
+                    </td>
+                    <td class="address-icon">
+                        <span tooltip="{{getAddress(result.Site)}}">
+                            <img src="Bootstrap/img/icon-info.png" />
+                        </span>
+                    </td>
+                    <td>
+                        {{result.VisitDate | date:'dd/MM/yyyy'}}
+                    </td>
+                    <td class="to-be-hidden-ipad">
+                        <div ng-bind-html-unsafe="result.SLA"></div>
+                    </td>
+                    <td>
+                        {{result.CreatedBy}}
+                    </td>
+                    <td>
+                        {{result.Status}}
+                        <ng-switch on="result.QACommentStatus">
+                            <img ng-switch-when="HasUnresolvedQaComments" src="Bootstrap/img/icon-warning.png" />
+                            <img ng-switch-when="AllQaCommentsResolved" src="Bootstrap/img/icon-tick.png" />
+                        </ng-switch>
+                    </td>
+                    <td> {{result.StatusDate | date:'dd/MM/yyyy'}} </td>
+                    <td class="advisor">
+                        <ng-switch on="result.Status=='Completed' || result.Status == 'Assigned'">
+                            <select ng-switch-when="true" ng-model="result.QaAdvisor" ng-options="qaAdvisor.Initials for qaAdvisor in qaAdvisors">
+                                <option value="">-Select-</option>
+                            </select>
+                            <span ng-switch-when="false'">{{result.QaAdvisor.Fullname}}</span>
+                        </ng-switch>
+                        <a ng-show="result.Status=='Completed' || result.Status == 'Assigned'" style="cursor: pointer" title="Assign">
+                            <img src="Bootstrap/img/icon-assign.png" ng-click="assignChecklistToQaAdvisor(result.index, result.Id, result.QaAdvisor, result.DefaultQaAdvisor)" />
+                        </a>
+                    </td>
+                    <td>
+                        <a ng-show="result.Deleted != true && result.Local && result.Status =='Draft' && isOnlineAndWorkingOnline(null)" style="cursor: pointer">
+                            <img src="Bootstrap/img/icon-upload.png" ng-click="uploadLocalChecklistToServer(result.Id)" title="Upload" />
+                        </a>
+
+                        <a ng-show="result.Deleted != true && result.Status =='Draft' && isOnlineAndWorkingOnline(null)" style="cursor: pointer">
+                            <img src="Bootstrap/img/icon-download.png" ng-click="downloadChecklist(result.Id)" title="Download" />
+                        </a>
+
+                        <a ng-show="result.Deleted != true && result.Status == 'Draft' && isOnlineAndWorkingOnline(null)" style="cursor: pointer">
+                            <img src="Bootstrap/img/icon-delete.png" ng-click="deleteChecklist(result.Id)" title="Delete" />
+                        </a>
+
+                        <a ng-click="blockUI()" ng-show="result.Deleted != true && (result.Status =='Draft' || result.Status =='Completed' || result.Status == 'Assigned')" href="#/evaluationchecklists/{{result.Id}}">
+                            <img src="Bootstrap/img/icon-edit.png" title="Edit" />
+                        </a>
+
+                        <a ng-show="result.Deleted != true && result.Status =='Submitted'" href="#/evaluationchecklists/{{result.Id}}">
+                            <img src="Bootstrap/img/icon-search.png" alt="View" title="View">
+                        </a>
+                        <a ng-show="showPrintIcon(result)" href="{{SubmittedPDFDownloadUrl(result.Id)}}">
+                            <img src="bootstrap/img/icon-print.png" title="Print" />
+                        </a>
+                        <a ng-show="result.Deleted != true && result.Status =='Submitted'" ng-click="revertChecklist(result.Id)" title="Revert">
+                            <img src="Bootstrap/img/icon-revert.png" alt="Revert">
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Show My Favourites -->
+    <div class="search-result" ng-show="showMyFavourites == true">
+        <table class="row-fluid table-bordered report-summary-table">
+            <thead>
+                <tr>
+                    <th>
+                        <label ng-click="predicate = 'Title'; reverse=!reverse">
+                            Title
+                        </label>
+                    </th>
+                    <th>
+                        <label ng-click="predicate = 'TemplateName'; reverse=!reverse">
+                            Template Name
+                        </label>
+                    </th>
+                    <th colspan="2">
+                        <label ng-click="predicate = 'CAN'; reverse=!reverse">
+                            CAN
+                        </label>
+                    </th>
+                    <th colspan="2">
+                        <label ng-click="predicate = 'Site.Postcode'; reverse=!reverse">
+                            Postcode
+                        </label>
+                    </th>
+                    <th>
+                        <label ng-click="predicate = 'Status'; reverse=!reverse">Status</label>
+                    </th>
+                    <th>
+                        <label class="min-width" ng-click="predicate = 'StatusDate'; reverse=!reverse">
+                            Status Date
+                        </label>
+                    </th>
+                    <th>
+                        &nbsp;
+                    </th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="result in favouriteSearchResults | filter:searchResultItemVisible | orderBy:predicate:reverse">
+                <tr class="table-tr-content">
+                    <td class="no-boder-left">
+                        <label>
+                            {{result.Title}}
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            {{result.TemplateName}}
+                        </label>
+                    </td>
+                    <td>
+                        <label>
+                            {{result.CAN}}
+                        </label>
+                    </td>
+                    <td class="favourite-icon">
+                        <span>
+                            <img src="Bootstrap/img/star15x15.png" alt="Favourite" title="Favourite">
+                        </span>
+                    </td>
+                    <td class="postcode">
+                        {{result.Site.Postcode}}
+                    </td>
+                    <td class="address-icon">
+                        <span tooltip="{{getAddress(result.Site)}}">
+                            <img src="Bootstrap/img/icon-info.png" />
+                        </span>
+                    </td>
+                    <td>
+                        {{result.Status}}
+                    </td>
+                    <td> {{result.StatusDate | date:'dd/MM/yyyy'}} </td>
+                    <td>
+                        <a ng-show="result.Deleted != true && result.Status =='Submitted'" href="#/evaluationchecklists/{{result.ChecklistId}}">
+                            <img src="Bootstrap/img/icon-search.png" alt="View" title="View">
+                        </a>
+                        <a ng-click="cloneChecklist(result.ChecklistId)" title="Clone Report">
+                            <img src="Bootstrap/img/icon-copy.png" />
+                        </a>
+                        <a ng-show="result.Deleted != true && result.Status =='Submitted'" ng-click="revertChecklist(result.ChecklistId)" title="Revert">
+                            <img src="Bootstrap/img/icon-revert.png" alt="Revert">
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row-fluid" ng-show="(localDrafts.length > 0) && isOnlineAndWorkingOnline(null)">
+    <div class="span12">
+        <div class="pull-left" style="margin-top:5px;">
+            <button class="btn btn-primary btn-color-style2" ng-click="removeDraftsFromLocalStorage()">
+                Clear Local Storage
+            </button>
+        </div>
+    </div>
+</div>

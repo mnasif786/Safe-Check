@@ -1,0 +1,49 @@
+﻿<div class="row-fluid popup-header">
+    <img class="pull-right" src="Bootstrap/img/icon-response.png" ng-click="cancel()" />
+
+    <h4>Immediate Risk Notification
+    </h4>
+
+
+
+</div>
+<div class="row-fluid popup-body">
+    <form name="recordIRN_form" ng-submit="ok()" class="form-record-immadiate" style="margin-bottom: 0px">
+        <div id="catRecordIRNChildId" ng-class="{true: ''}[(submitted && recordIRN_form.reference.$invalid) || (submitted && recordIRN_form.significantHazard.$invalid) || (submitted && recordIRN_form.recommendedImmediate.$invalid)]">
+
+            <label>Reference</label>
+            <input class="span6" type="text" maxlength="50" name="reference"
+                ng-model="newrecordIRN.Reference" required />
+            <div class="irn-validation-error" ng-show="submitted && recordIRN_form.reference.$error.required">
+                Please fill in Reference !
+            </div>
+
+            <label>Title</label>
+            <input class="span11" type="text" maxlength="150" name="title" ng-model="newrecordIRN.Title" />
+
+            <div class="row-fluid">
+                <label>Significant Hazard Identified (material breaches of legislation)</label>
+                <textarea cols="40" rows="2" maxlength="250" class="span12"
+                    name="significantHazard" ng-model="newrecordIRN.SignificantHazard" required></textarea>
+                <div class="irn-validation-error" ng-show="submitted && recordIRN_form.significantHazard.$error.required">
+                    Please fill in Significant Hazard Identified !
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <label>Recommended Immediate Action</label>
+                <textarea cols="40" rows="2" maxlength="250" class="span12"
+                    name="recommendedImmediate" ng-model="newrecordIRN.RecommendedImmediate" required></textarea>
+                <div class="irn-validation-error" ng-show="submitted && recordIRN_form.recommendedImmediate.$error.required">
+                    Please fill in Recommended Immediate Action !
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid response-popup-footer" style="margin-left: -10px">
+            <div class="pull-right">
+                <button class="btn btn-info btn-color-style2" ng-click="cancel()">Cancel</button>
+                <button class="btn btn-primary " ng-click="submitted=true">Ok</button>
+            </div>
+        </div>
+    </form>
+</div>

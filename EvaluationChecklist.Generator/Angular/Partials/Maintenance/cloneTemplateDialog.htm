@@ -1,0 +1,38 @@
+﻿<div class="row-fluid" id="cloneTemplate">
+    <div class="row-fluid">
+        <div class="response-details-label">
+            <h4>{{options.title}}</h4>
+        </div>
+        <div class="catResponseDetailsChildId-float">
+            <label>
+                <img class="catResponseDetailsChildId-icon" src="Bootstrap/img/icon-response.png"  ng-click="cancel()"/>
+            </label>
+        </div>
+    </div>
+    <div>
+        <div class="span12">
+            <label class="response-details-label">{{options.prompt}}</label>
+        </div>
+        <div class="row-fluid span12">
+            <label class="span4">New template name:</label>
+            <input class="span6" type="text" ng-model="request.Name" maxlength="200" required>
+        </div>
+        <div ng-show="request.Clone" class="row-fluid span12 template-type">
+            <label class="span4">Create New: </label>
+            <div class="span8">
+                <label>
+                    <input type="radio" name="templateType" ng-model="request.TemplateType" value="1">
+                    Industry
+                </label>
+                <label>
+                    <input type="radio" name="templateType" value="2" ng-model="request.TemplateType">
+                    Bespoke
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-info btn-color-style2 btn-popup"  ng-click="cancel()">{{options.cancel}}</button>
+    <button class="btn btn-primary btn-color-style1 btn-popup" ng-click="ok()">{{options.ok}}</button>
+</div>
